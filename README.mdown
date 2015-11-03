@@ -1,0 +1,10 @@
+Einführung in ECMAScript 6
+==========================
+
+#### Präsentation starten
+[https://paulkogel.github.io/es6-fh-koeln-2015-11-12](https://paulkogel.github.io/es6-fh-koeln-2015-11-12)
+
+#### Tastaturkürzel
++ `p` zum Ein-/Ausblenden der Präsentationsnotizen
+
+Erstellt mit [Remark.js](https://github.com/gnab/remark).
