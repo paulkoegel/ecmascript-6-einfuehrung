@@ -136,16 +136,25 @@ class: s-vertical-center
 
 ---
 
+class: s-vertical-center
 
-background-image: url(images/good-bad.jpg)
-
----
-
-background-image: url(images/javascript-good-bad-parts.jpg)
+# Duale Natur
+.u-width-70[
+![](images/javascript-good-bad-parts.jpg)
+]
 
 ???
 im linken Buch steht alles über JavaScript
 das rechte Buch bekommt man, wenn man die ganzen Sachen, die an JavaScript schlecht sind, aus dem dicken Buch herausreißt.
+
+---
+
+background-image: url(images/eminem-c-hammer.jpg)
+
+???
++ passendste Metapher - gerade im Hinblick auf ES6: Man hat Eminem und der kann nicht gut genug rappen. Dann fängt man an MC Hammer drüberzukleistern und es sieht immer mehr wie n richtiger Rapper aus, aber immer wieder scheint dieser Eminem durch.
+
+ES6: großer Schritt n anständiger Rapper, eine solide Programmiersprache zu werden - nichts gegen Eminem.
 
 ---
 

@@ -9,3 +9,11 @@
 .u-no-margin, .u-no-margin > * {
   margin: 0;
 }
+
+.u-width-70 {
+  width: 70%;
+}
+
+.u-width-70 img {
+  width: 100%;
+}
