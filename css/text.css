@@ -1,0 +1,56 @@
+.white-text {
+  color: white;
+}
+
+.text-tiny {
+  font-size: 1rem;
+}
+
+.text-smaller {
+  font-size: 2rem;
+}
+
+.text-small {
+  font-size: 3rem;
+}
+
+.text-medium {
+  font-size: 4rem;
+}
+
+.text-large {
+  font-size: 5rem;
+}
+
+.text-strikethrough {
+  text-decoration: line-through;
+}
+
+.text-grey {
+  color: #777;
+}
+
+.text-grey-inherit, .text-grey-inherit * {
+  color: #777;
+}
+
+.text-green {
+  color: #00CB7A;
+}
+
+.text-blue {
+  color: #284EC8;
+}
+
+.text-red {
+  color: #C82828;
+}
+
+.text-undecorated, .text-undecorated > * {
+  text-decoration: none;
+}
+
+.text-quote {
+  font-style: italic;
+  margin-bottom: 20px;
+}

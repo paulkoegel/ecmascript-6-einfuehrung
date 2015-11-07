@@ -1,0 +1,58 @@
+/* fonts */
+/* @import url(https://fonts.googleapis.com/css?family=Droid+Serif:400,400italic,700,700italic); */
+
+/* http://www.paulirish.com/2012/box-sizing-border-box-ftw/ */
+html {
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+
+/* element defaults */
+html {
+  font-size: 62.5%;
+}
+
+
+/* font candidates: Vollkorn, Lora, 'PT Serif', Georgia, serif */
+body {
+  font-family: 'Droid Serif', Vollkorn, 'PT Serif', Georgia, serif;
+}
+
+h1,h2,h3,h4,h5,h6 {
+ font-family: 'Droid Sans', 'Open Sans', Helvetica, 'Helvetica Neue', Arial, sans-serif;
+} 
+
+ul, ol {
+  padding: 0;
+  margin-left: 45px;
+}
+
+ul li, ol li {
+  margin-bottom: 10px;
+}
+
+h1 {
+  margin-top: 0;
+  margin-bottom: 20px;
+  font-size: 8rem;
+}
+
+.unstyled-wrapper {
+  /* do'nt apply any styles here, sometimes empty wrappers are required to please markdown */
+}
+
+a, a:visited {
+  color: #00CB7A;
+}
+
+ul {
+  list-style: circle;
+  margin-left: 3.2rem;
+}
+
+li {
+  font-size: 3rem;
+}

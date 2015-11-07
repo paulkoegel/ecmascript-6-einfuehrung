@@ -1,0 +1,74 @@
+/* styles only for this presentation, classes prefixed with `.c-` */
+
+.c-title {
+}
+
+.c-title--headline {
+  text-align: center;
+  flex-grow: 1; /* this pushed meta to the bottom */
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.c-title--headline h1 {
+  font-size: 7rem;
+  line-height: 8rem;
+  text-decoration: none;
+  margin-bottom: 0;
+}
+
+.c-title--note {
+  display: none;
+}
+
+.c-title--meta {
+  border-top: 2px double #555;
+  padding-top: 30px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.c-title--author {
+  color: #555;
+  font-size: 3.5rem;
+  text-decoration: none;
+  margin-bottom: 15px;
+}
+
+.c-title--links {
+  color: #555;
+  font-size: 2.5rem;
+}
+.c-title--links a {
+  text-decoration: none;
+}
+
+
+.c-inhalt--list ul {
+  margin-top: 10px;
+}
+
+.c-inhalt--list ul > li {
+  font-size: 2.5rem;
+}
+
+.c-inhalt--list ol > li {
+  margin-bottom: 25px;
+}
+
+.c-inhalt--ol-with-counter ol {
+  counter-reset: item 1;
+}
+
+.c-inhalt--ol-with-counter ol > li {
+  display: block;
+}
+
+.c-inhalt--ol-with-counter ol > li:before {
+  content: counter(item) ". ";
+  counter-increment: item;
+  margin-left: -45px;
+}
