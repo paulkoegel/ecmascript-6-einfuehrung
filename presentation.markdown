@@ -32,6 +32,12 @@ background-image: url(images/paul_kogel_wakkahari.jpg)
 
 ---
 
++ Lust auf Programmieren machen
++ dieser Vortrag: kritische 
++ neue
+
+---
+
 class: s s-center
 
 # <u>Java</u>Script ≠ <u>Java</u>
@@ -91,11 +97,10 @@ aktualisiert
 
 class: s s-center
 
-# ECMAScript 6 =<br> Griff für JavaScript
+# ECMAScript 6 =<br> Lederhandschuh für JavaScript
 
 ???
-+ ES6 verpasst JavaScript einen Griff
-+ durchkommen der Zacken lässt sich nicht vermeiden (Abwärtskompatibilität), aber man kann jetzt besser an neuen Stellen seine Finger ablegen, um das Schwert zu halten
++ durchkommen der Zacken lässt sich nicht vermeiden (Abwärtskompatibilität), aber man kann jetzt besser an den weniger spitzen Stellen seine Finger ablegen, um das Schwert zu halten
 
 ---
 
@@ -456,6 +461,13 @@ bei beiden: davor Chaos, viele verschiedene Implentierungen
 ES6 macht den Einstieg leichter, man braucht weniger Libraries wie underscore.JS oder jQuery
 
 ---
+
+# Ausblick
+
++ ES6 ist n Lederhandschuh, 
+
+---
+
 
 Dokumentation:
 https://developer.mozilla.org/en/docs/Web/JavaScript
