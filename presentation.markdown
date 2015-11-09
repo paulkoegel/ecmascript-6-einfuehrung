@@ -142,7 +142,7 @@ background-image: url(images/netscape-logo.svg)
   - interpretiert & untypisiert
   - Vorbild: Visual Basic
   - in HTML einbettbar
-+ als enifacherer Ergänzung zu Java gedacht
++ als einfachere Ergänzung zu Java gedacht
 ]
 
 ???
