@@ -6,7 +6,7 @@
   font-size: 1rem;
 }
 
-.text-smaller {
+.text-mini {
   font-size: 2rem;
 }
 
@@ -37,13 +37,14 @@
 .text-green {
   color: #00CB7A;
 }
-
 .text-blue {
   color: #284EC8;
 }
-
 .text-red {
   color: #C82828;
+}
+.text-white {
+  color: #fff;
 }
 
 .text-undecorated, .text-undecorated > * {
@@ -53,4 +54,13 @@
 .text-quote {
   font-style: italic;
   margin-bottom: 20px;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-normal, .text-normal > * {
+  font-decoration: none;
+  font-weight: normal;
 }
