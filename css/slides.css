@@ -140,7 +140,11 @@
 }
 
 .s_background-bottom {
-  background-position: bottom center !important;
+  background-position: center bottom !important;
+}
+
+.s_background-bottom-with-padding {
+  background-position: center 95% !important;
 }
 
 .s_background-black {
@@ -175,6 +179,10 @@
   background: #F9DB3D;
 }
 
+.s_background-red {
+  background-color: #C82828;
+}
+
 .s--headline-overlay {
   background-color: rgba(0, 0, 0, 0.6);
   width: 100%;
@@ -190,4 +198,14 @@
 
 .s_no-padding {
   padding: 0
+}
+
+.s--overlay-container {
+  background: rgba(0,0,0, 0.85);
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }

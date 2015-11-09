@@ -1,5 +1,5 @@
-Einführung in ECMAScript 6
-==========================
+ECMAScript 6
+============
 
 #### Präsentation starten
 [https://paulkogel.github.io/es6-fh-koeln-2015-11-12](https://paulkogel.github.io/es6-fh-koeln-2015-11-12)

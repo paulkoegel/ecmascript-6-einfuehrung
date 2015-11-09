@@ -81,4 +81,15 @@ pre {
   margin-bottom: 0;
 }
 
+table td {
+  padding: 0.5rem;
+  font-size: 3rem;
+}
 
+table > thead td {
+  font-weight: bold;
+}
+
+table tbody tr:nth-child(odd) {
+  background: #ddd;
+}
