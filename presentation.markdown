@@ -135,7 +135,7 @@ Quelle: Darcy Padilla
 class: s s-top s_background-30 s_background-bottom-with-padding
 background-image: url(images/netscape-logo.svg)
 
-## Netscapes Motivation
+## Netscapes Ziel
 
 .c-list[
 + leicht zugänglich für Amateure
@@ -156,7 +156,7 @@ Quellen:
 
 class: s s-top s_no-padding
 
-## Motivation für Standardisierung: Dialekte
+## Standardisierung für viele Dialekte
 
 <table>
   <thead>
@@ -250,7 +250,7 @@ class: s s-center
 + [v8](https://en.wikipedia.org/wiki/V8_%28JavaScript_engine%29) (Chrome, Node.js)
 + [JavaScript Core](https://en.wikipedia.org/wiki/WebKit#JavaScriptCore) ("Nitro", Safari)
 + Chakra (Microsoft)
-+ [...](https://en.wikipedia.org/wiki/JavaScript_engine)
++ [... 10 mehr](https://en.wikipedia.org/wiki/JavaScript_engine)
 
 
 ???
