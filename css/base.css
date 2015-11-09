@@ -53,9 +53,14 @@ a, a:visited {
 }
 
 ul {
-  list-style: circle;
+  list-style: square;
   margin-left: 3.2rem;
 }
+
+ul ul {
+  list-style: circle;
+}
+
 
 li {
   font-size: 3rem;

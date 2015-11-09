@@ -2,12 +2,29 @@
   width: 100%;
 }
 
+.u-padding-10 {
+  padding: 1rem;
+}
+
+.u-padding-20 {
+  padding: 2rem;
+}
+
 .u-padding-top-20 {
   padding-top: 20rem;
 }
 
+.u-no-padding-left {
+  padding-left: 0;
+}
+
 .u-no-margin, .u-no-margin > * {
   margin: 0;
+}
+
+.u-no-margin-vertical, .u-no-margin-vertical > * {
+  margin-top: 0;
+  margin-bottom: 0;
 }
 
 .u-margin-top-20 {
@@ -45,10 +62,18 @@
   background: #C82828;
 }
 
+.u-background-green {
+  background: #25991F;
+}
+
 .u-border-radius-10 {
   border-radius: 1rem;
 }
 
-.u-padding-10 {
-  padding: 1rem;
+
+.u-bottom {
+  position: absolute;
+  bottom: 20px;
+  left: 50px;
+  width: 100%;
 }

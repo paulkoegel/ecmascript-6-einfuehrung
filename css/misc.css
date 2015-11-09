@@ -1,14 +1,5 @@
 /* GENERIC SLIDES */
 
-.remark-slide-content.title {
-  /* background-size: cover !important; */
-  /* background-position: 100% 2% !important; */
-  /* color: white; */
-  /* box-shadow: inset 0px 0px 120px 40px rgba(0,0,0,0.8); */
-  /* background: green; */
-  /* outline: 5px solid yellow; */
-}
-
 .code-fullscreen {
   padding: 10px;
 }
@@ -109,16 +100,6 @@
 
 .no-padding-top {
   padding-top: 0;
-}
-
-.full-page-link a {
-  position: absolute;
-  top: 20%;
-  bottom: 20%;
-  left: 20%;
-  right: 20%;
-  display: block;
-  z-index: 1;
 }
 
 .contact {

@@ -6,7 +6,7 @@
 }
 
 .remark-slide-number {
-  display: none;
+  font-size: 2.2rem;
 }
 
 .s {
@@ -28,12 +28,6 @@
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  /* display: flex; */
-  /* width: 100%; */
-  /* position: absolute; */
-  /* top: 0; */
-  /* bottom: 0; */
-  /* left: 0; */
 }
 
 .s-center_left {
@@ -67,11 +61,7 @@
   justify-content: flex-start;
   flex-direction: column;
   padding: 20px 50px;
-  //border-radius: 10px;
   border-right: 1px solid #ccc;
-  //background: #eee;
-  //box-shadow: 0 0 5px rgba(0,0,0,0.1);
-  //border: 1px solid #ddd;
 }
 
 .col > * {
@@ -121,7 +111,6 @@
   width: 30%;
 }
 
-
 .s-image--source {
   margin-bottom: -40px;
   font-size: 1.5rem;
@@ -132,6 +121,26 @@
 .s_background-cover {
   background-size: cover !important;
   background-position: center !important;
+}
+
+.s_background-20 {
+  background-size: auto 20% !important;
+}
+
+.s_background-30 {
+  background-size: auto 30% !important;
+}
+
+.s_background-40 {
+  background-size: auto 30% !important;
+}
+
+.s_background-50 {
+  background-size: auto 50% !important;
+}
+
+.s_background-bottom {
+  background-position: bottom center !important;
 }
 
 .s_background-black {

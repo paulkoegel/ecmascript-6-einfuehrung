@@ -16,7 +16,8 @@
   margin-top: 1.5rem;
 }
 
-.c-title {
+.c-title .remark-slide-number {
+  display: none;
 }
 
 .c-title--headline {

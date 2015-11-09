@@ -18,58 +18,150 @@ background-image: url(images/escher-spiral-cropped.jpg)
 .c-title--note[
   'p' drücken, um Präsentationsnotizen ein-/auszublenden]
 
+???
+ECMAScript 6 (ES6): aktuelle Version von JavaScript
+JavaScript: Sprache für Datepicker
+
 ---
 
-class: s s-center s_background-grey
-background-image: url(images/paul_kogel_wakkahari.jpg)
+class: s s-top s_background-grey s_background-50 s_background-bottom
+background-image: url(images/paul-kogel.jpg)
 
-.full-page-link[
-[](https://twitter.com/wakkahari)
-]
+# Paul Kögel
++ Frontends bei [.text-green[Railslove]](http://railslove.com)
++ JavaScript, Ruby, Clojure
++ [@wakkahari](https://twitter.com/wakkahari)
+
 
 ???
 + kurz vorstellen: Entwickler bei **Railslove**: Webfrontends mit JavaScript, Ruby und Clojure
 
 ---
 
-+ Lust auf Programmieren machen
-+ dieser Vortrag: kritische 
-+ neue
+class: s s-top s_background-bottom s_background-30
+background-image: url(images/dilbert-lunch-cut.png)
 
----
+# Themen
 
-class: s s-center
+.row.u-full-width.c-inhalt--list[
+.col.col-50.u-no-padding-left[
+1. **Hintergrund**
+  + Begrifflichkeiten
+  + Geschichte
+  + Probleme
+  + Motivation für ES6
+]
 
-# <u>Java</u>Script ≠ <u>Java</u>
-
-???
-+ fangen wir von ganz außen an
-+ das Wichtigste, was man über JavaScript wissen muss
-
----
-
-
-
-class: s s-center
-
-## Warum JavaScript?
-
-.c-list.u-width-70[
-+ nicht wegen Eleganz oder Robustheit
-  - .text-red[**eher bekannt für Brüchigkeit**]
-  - trotzdem .text-green[**schöner Kern**], der durch ES6 noch schöner wird
-+ Sprache des Webs -> viele Entwickler
-+ heute .text-green[**allgegenwärtig**], wird so schnell nicht mehr verschwinden
+.col.col-50.c-inhalt--ol-with-counter[
+2. **ES6 Praxis**
+  + Sprachfeatures
+  + Nutzung mit Transpiler Babel
+3. Ausblick
+  + ES7
+  + Assembler des Webs
+]
 ]
 
 ???
-+ allgegenwärtig: Browser, Server (Node.js), Datenbanken (Mongo, Couch, ...), Roboter (Nodecopter), Photoshop Plugins, Windows Apps, Native Apps (React Native).
++ beginnen mit Erklärung der Namen - warum heißt das ausgerechnet JavaScript und warum heißen Versionen davon ECMAScript?
++ dann schauen wir uns JavaScripts Geschichte an: Entstehung und Aufstieg
++ Reisewarnung für Gefahrenzone
++ schließlich zeig ich euch Probleme, die großer Teil der Motivation für ES6 waren
+
++ im **2. Teil**
+
+---
+
+class: s s-center s_no-padding s_background-cover
+background-image: url(images/death-star-briefing.png)
+
+.s--headline-overlay[
+# 1. Hintergrund
+]
+
+---
+
+background-image: url(images/catbert.png)
+class: s s-top s_background-bottom s_background-30
+<br>
+<br>
+# <u>Java</u>Script ≠ <u>Java</u>
+
+???
++ das Wichtigste am Anfang
++ haben nichts miteinander zu tun
++ werden gleichs sehen wie es zu dem unglücklichen Namen kommt
+
+---
+
+background-image: url(images/javascript-logo.jpg)
+class: s s-top s_background-20 s_background-bottom
+
+## „Sie wollen also JavaScript schreiben...“
+
+.c-list.u-width-70[
++ nicht bekannt für besondere Eleganz oder Robustheit
+  - eher für .text-red[**Brüchigkeit**] und .text-red[**böse Überraschungen**]
+  - dennoch _kann_ man .text-green[**elegante Programme**] schreiben
++ .text-green[**Sprache des Webs**]
++ .text-green[**schnell sichtbare Ergebnisse**]
++ .text-green[**allgegenwärtig & universell**]
+]
+
+???
++ warum schauen wir uns JS an?
++ Eleganz: durch ES6 noch verbessert
++ .text-green[Sprache des Webs]: viele Zielgeräte, viele Entwickler
++ **allgegenwärtig**: Browser, Server (Node.js), Datenbanken (Mongo, Couch, ...), Roboter (Nodecopter), Photoshop Plugins, Windows Apps, Native Apps (React Native).
++ **universell**: man kann damit heute fast alles schreiben und die Möglichkeiten wachsen
++ **Full-Stack JavaScript Entwickler**
+
+---
+
+class: s s-top s_background-bottom s_background-50
+background-image: url(images/office-space-lumberg-hmmm.jpg)
+
+```javascript
+Math.max();
+// -Infinity
+
+Math.min();
+// Infinity
+```
+
+.text-mini[
+<br>
+mehr: [wtfjs.com](http://wtfjs.com)
+]
+
+???
++ nichts was einem jeden Tag begegnet
++ gibt Beispiele mit denen Firmen Hunderttausende von Dollar verloren haben :(
 
 ---
 
 class: s s-center
 
-## In einem Bild
+```javascript
+var a = [];
+var b;
+a[b++] = 1;
+```
+
+.text-mini[
+Quelle: [Type safety and RNGs](https://medium.com/@octskyward/type-safety-and-rngs-40e3ec71ab3a)
+]
+
+???
++ b ist `undefined`
++ `undefined++` gibt `NaN`
++ a[NaN] verändert a nicht, wirft aber auch keinen Fehler
+
+---
+
+class: s s-top
+
+## JavaScript in einem Bild
 .u-width-70[
 ![](images/javascript-good-bad-parts.jpg)
 ]
@@ -81,9 +173,9 @@ das rechte Buch bekommt man, wenn man die ganzen Sachen, die an JavaScript schle
 
 ---
 
-class: s s-center
+class: s s-top
 
-## ...und in noch einem
+## ...
 
 ![If JavaScript were a weapon: sword without a hilt](images/javascript-weapon.png)
 .text-center.text-mini[
@@ -91,64 +183,47 @@ Quelle: [If programming languages were weapons](http://bjorn.tipling.com/if-prog
 ]
 
 ???
-aktualisiert
++ Schwert ohne Griff, bei dem man sich unweigerlich blutige Finger holt
 
 ---
 
-class: s s-center
+class: s s-top s_background-bottom
+background-image: url(images/leather-gloves.jpg)
 
-# ECMAScript 6 =<br> Lederhandschuh für JavaScript
+<br>
+<br>
+# ECMAScript 6 =<br> Lederhandschuhe für JavaScript
 
 ???
 + durchkommen der Zacken lässt sich nicht vermeiden (Abwärtskompatibilität), aber man kann jetzt besser an den weniger spitzen Stellen seine Finger ablegen, um das Schwert zu halten
 
 ---
 
-class: s s-center
+class: s_background-cover
+background-image: url(images/office-space-lumbergh.jpg)
 
-# Inhalt
-
-.row.u-full-width.c-inhalt--list[
-.col.col-50[
-1. Orientierung & **Hintergrund**
-  + Begrifflichkeiten
-  + Ursprünge von JS
-  + .text-green[**Aufstieg**]
-  + .text-red[**Probleme**]
-  + Motivation für ES6
+.u-background-green.text-white.u-width-50.u-padding-20.u-no-margin-vertical.u-border-radius-10[
+JavaScript ist trotzdem **super**!
 ]
 
-.col.col-50.c-inhalt--ol-with-counter[
-2. **ES6 Praxis**
-  + Sprachfeatures
-  + Nutzung mit Transpiler Babel
-3. Ausblick
-  + ES7
-]
-]
+???
++ lieber als Ruby, obwohl das die sauberere Sprache ist
++ ich schreib gerne JavaScript weil im Browser & allen zeigbar und gut geeignet für funktionale Programmierung / sich hier gerade sehr viel tut mit guten Ideen wie man Frontends bauen kann.
++ normalerweise werden bei Vorträgen zu neuen Sprachversionen nur die Vorteile hervorgehoben und keiner fragt, woran es denn liegt, dass all diese Verbesserungen notwendig waren
++ ES6 ist nicht der Weisheit letzter Schluss, ES7 ist schon in der Mache
++ zeigen warum überhaupt ES6 / Motivation dahinter und Beispiel zeigen wie Programmiersprachen sich über die Zeit entwickeln.
 
 ---
 
 class: s s-center
 
+BEI PRAXISTEIL AM ANFANG SAGEN
 # Nicht
 
 + kein vollständiger Überblick
 
 ???
 + ES6 hat zu viele neue Features, als das man sie alle in anderthalb Stunden vorstellen könnte
-
----
-
-class: s s-center s_no-padding s_background-grey c-garden-bosch
-background-image: url(images/hieronymus-bosch-the-garden-of-earthly-delights-crop.jpg)
-
-.s--headline-overlay[
-# 1. Orientierung
-]
-
-???
-Dschungel von Namen, ständig neue Entwicklungen
 
 ---
 
@@ -317,16 +392,6 @@ class: s s-center
 
 ---
 
-background-image: url(images/eminem-c-hammer.jpg)
-
-???
-+ passendste Metapher - gerade im Hinblick auf ES6: Man hat Eminem und der kann nicht gut genug rappen. Dann fängt man an MC Hammer drüberzukleistern und es sieht immer mehr wie n richtiger Rapper aus, aber immer wieder scheint dieser Eminem durch.
-
-ES6: großer Schritt n anständiger Rapper, eine solide Programmiersprache zu werden - nichts gegen Eminem.
-
----
-
-
 
 # Heute
 + JavaScript in/auf
@@ -445,12 +510,10 @@ workarounds vor ES6: jQuery, Underscore.js, JSHint, Babel Warnungen
 
 ---
 
-
 https://kangax.github.io/compat-table/es6/
 
 asm.js, emscripten,
 compile to JS languages (CoffeeScript, ClojureScript, Dart, Typescript, PureScript, Elm, ...)
-
 
 ---
 ES6 Features
@@ -462,12 +525,21 @@ ES6 macht den Einstieg leichter, man braucht weniger Libraries wie underscore.JS
 
 ---
 
-# Ausblick
+class: s s-center
 
-+ ES6 ist n Lederhandschuh, 
+# Babel
+
+`npm install -g babel-cli`
 
 ---
 
+# Ausblick
+
++ ES6 ist n Lederhandschuh, ClojureScript etc. ist n richtiges Schwert mit Griff
++ ES7 ist in der Mache - soll 2016 kommen
++ Aufnahmeprozess neuer Features ist durch Entwicklergemeinde mitgesteuert, mit Babel kann man früh Feedback zu vorgeschlagenen Syntaxerweiterungen bekommen
+
+---
 
 Dokumentation:
 https://developer.mozilla.org/en/docs/Web/JavaScript
@@ -478,6 +550,3 @@ https://developer.mozilla.org/en/docs/Web/JavaScript
 Links:
 https://brendaneich.github.io/ModernWeb.tw-2015/
 https://shaunlebron.github.io/solar-system-of-js
-
-
-
