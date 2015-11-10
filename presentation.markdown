@@ -73,7 +73,7 @@ background-image: url(images/dilbert-lunch-cut.png)
 ---
 
 class: s s-center s_no-padding s_background-cover
-background-image: url(images/death-star-briefing.png)
+background-image: url(images/death-star-briefing.jpg)
 
 .s--headline-overlay[
 # 1. Hintergrund
@@ -128,7 +128,7 @@ Quelle: Darcy Padilla
 + 1995 von Brendan Eich erschaffen
 + Netscape: damals einer der populärsten Browser, später open source und daraus entstand die Mozilla Foundation die heute Firefox herausgibt
 + missverständlicher Name: Java war sehr hip, Kooperation zwischen Netscape und **Sun**, der Firma hinter Java (später von Oracle gekauft)
-+ Mocha, Marketing: LiveScript -> JavaScript
++ Mocha, Marketing: LiveScript &rArr; JavaScript
 
 ---
 
@@ -234,7 +234,7 @@ class: s s-top s_no-padding
 + erste Version: Juni 1997
 
 JScript: Microsoft's JavaScript Dialekt, daneben gibt's noch 
-Browser Wars: Vorwürfe, dass Netscape seine Erfinderrolle zum eigenen Vorteil nutzt -> Standardisierung war wichtig
+Browser Wars: Vorwürfe, dass Netscape seine Erfinderrolle zum eigenen Vorteil nutzt &rArr; Standardisierung war wichtig
 
 Quellen:  
 [https://en.wikipedia.org/wiki/JavaScript#Version_history](https://en.wikipedia.org/wiki/JavaScript#Version_history)  
@@ -243,7 +243,8 @@ Quellen:
 
 ---
 
-class: s s-center
+class: s s-top s_background-35 s_background-bottom
+background-image: url(images/jagermonkey.jpg)
 
 # JavaScript Engines
 + [Spidermonkey](https://en.wikipedia.org/wiki/SpiderMonkey_%28software%29) (Mozilla)
@@ -251,7 +252,6 @@ class: s s-center
 + [JavaScript Core](https://en.wikipedia.org/wiki/WebKit#JavaScriptCore) ("Nitro", Safari)
 + Chakra (Microsoft)
 + [... 10 mehr](https://en.wikipedia.org/wiki/JavaScript_engine)
-
 
 ???
 + Implementierungen innerhalb eines Herstellers / Interpreter / VMs
@@ -315,8 +315,9 @@ class: s s-top
 + **1998**: Mozilla, Netscape an AOL verkauft
 + **2005**: Ajax
 + **2006**: jQuery
-+ **2007**: iPhone -> Flash unter Druck
++ **2007**: iPhone &rArr; Flash auf dem Rückzug
 + **2008**: Google Chrome &amp; v8
++ **2009**: Node.js, ES5
 ]
 
 ???
@@ -413,7 +414,7 @@ class: s s-top s_background-red
 ---
 
 class: s s-bottom s_no-padding s_background-cover
-background-image: url(images/death-star-2-weakness.png)
+background-image: url(images/death-star-2-weakness.jpg)
 
 .s--headline-overlay[
 # Verdammt zur Abwärtskompatibilität
@@ -501,7 +502,7 @@ class: s s-center
 ---
 
 class: s s-top s_background-bottom s_background-50
-background-image: url(images/office-space-lumberg-hmmm.jpg)
+background-image: url(images/office-space-lumbergh-hmmm.jpg)
 
 ```javascript
 Math.max();
