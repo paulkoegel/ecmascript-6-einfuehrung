@@ -713,3 +713,22 @@ projects.formidablelabs.com/es6-interactive-guide/
 https://kangax.github.io/compat-table/es6/
 
 https://github.com/jashkenas/coffeescript/wiki/list-of-languages-that-compile-to-js
+
+
+
+---
+
+http://speakingjs.com/es5/ch18.html
+
+Indices are numbers i in the range 0 ≤ i < 232−1.
+The maximum length is 232−1.
+
+Indices that are out of range are treated as normal property keys (strings!). They don’t show up as array elements and they don’t influence the property length. For example:
+
+```javascript
+var arr = [];
+
+arr[-1] = 'a';
+arr       // []
+arr['-1'] // 'a'
+```
