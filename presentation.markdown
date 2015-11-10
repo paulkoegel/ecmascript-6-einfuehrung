@@ -634,10 +634,6 @@ JavaScript ist trotzdem **super**!
 
 ---
 
-background-image: url(images/old-people.jpg)
-
----
-
 nicht totzukriegen
 https://brendaneich.github.io/ModernWeb.tw-2015/images/alwaysbetonjs.png
 
