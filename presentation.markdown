@@ -39,7 +39,7 @@ background-image: url(images/paul-kogel.jpg)
 ---
 
 class: s s-top s_background-bottom s_background-30
-background-image: url(images/dilbert-lunch-cut.png)
+background-image: url(images/p/dilbert-lunch-cut.png)
 
 # Themen
 
@@ -73,7 +73,7 @@ background-image: url(images/dilbert-lunch-cut.png)
 ---
 
 class: s s-center s_no-padding s_background-cover
-background-image: url(images/death-star-briefing.jpg)
+background-image: url(images/p/death-star-briefing.jpg)
 
 .s--headline-overlay[
 # 1. Hintergrund
@@ -81,7 +81,7 @@ background-image: url(images/death-star-briefing.jpg)
 
 ---
 
-background-image: url(images/catbert.png)
+background-image: url(images/p/catbert.png)
 class: s s-top s_background-bottom s_background-30
 <br>
 <br>
@@ -263,7 +263,7 @@ background-image: url(images/jagermonkey.jpg)
 ---
 
 class: s s-center s_background-20 s_background-bottom
-background-image: url(images/dogbert.jpg)
+background-image: url(images/p/dogbert.jpg)
 
 #Übersicht
 
@@ -353,7 +353,7 @@ background-image: url(images/aliens-javascript.jpg)
 ---
 
 class: s s-center s_no-padding s_background-cover
-background-image: url(images/island-storm.jpg)
+background-image: url(images/p/island-storm.jpg)
 
 .s--headline-overlay[
 # Probleme
@@ -414,7 +414,7 @@ class: s s-top s_background-red
 ---
 
 class: s s-bottom s_no-padding s_background-cover
-background-image: url(images/death-star-2-weakness.jpg)
+background-image: url(images/p/death-star-2-weakness.jpg)
 
 .s--headline-overlay[
 # Verdammt zur Abwärtskompatibilität
@@ -572,7 +572,7 @@ Quelle: [If programming languages were weapons](http://bjorn.tipling.com/if-prog
 ---
 
 class: s s-top s_background-bottom
-background-image: url(images/leather-gloves.jpg)
+background-image: url(images/p/leather-gloves.jpg)
 
 <br>
 <br>
