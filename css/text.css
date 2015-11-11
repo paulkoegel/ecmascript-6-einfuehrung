@@ -69,3 +69,11 @@
 .text-background-translucent-white {
   background: rgba(255, 255, 255, 0.9);
 }
+
+.text-code_medium .remark-code {
+  font-size: 2.75rem;
+}
+
+.text-code_small .remark-code {
+  font-size: 2.15rem;
+}

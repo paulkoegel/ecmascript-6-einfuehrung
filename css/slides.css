@@ -56,12 +56,16 @@
   justify-content: center;
 }
 
+.row_no-padding-horizontal .col:first-of-type {
+  padding-left: 0;
+}
+
 .col {
   display: flex;
   justify-content: flex-start;
   flex-direction: column;
   padding: 20px 50px;
-  border-right: 1px solid #ccc;
+  border-right: 3px double #777;
 }
 
 .col > * {
@@ -114,6 +118,7 @@
 .s-image--source {
   margin-bottom: -40px;
   font-size: 1.5rem;
+  w
 }
 
 /* BACKGROUNDS */

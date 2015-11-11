@@ -8,3 +8,6 @@ ECMAScript 6
 + `p` zum Ein-/Ausblenden der Präsentationsnotizen
 
 Erstellt mit [Remark.js](https://github.com/gnab/remark).
+
+### Remove image folder from git history
+git filter-branch --force --index-filter 'git rm -r --cached --ignore-unmatch images' --prune-empty --tag-name-filter cat -- --all

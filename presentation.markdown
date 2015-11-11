@@ -72,6 +72,310 @@ background-image: url(images/p/dilbert-lunch-cut.png)
 
 ---
 
+class: s s-top s_background-20 s_background-bottom
+background-image: url(images/javascript-logo.jpg)
+
+## Die wichtigsten Namen
+
+.c-list[
++ Sprache: **JavaScript**
++ Standard: **ECMAScript**
++ Versionen von JavaScript:
+  - ES5 (_aktuell_)
+  - **ES6**
+  - ES7
+]
+
+???
++ leider ist das alles noch etwas komplizierter - hier fehlen vor allem noch wichtige Begriffe, diese heben wir uns für den 2. Teil auf.
+
+---
+
+class: s s-center
+
+## Ziele von ECMAScript 6
+
+.c-list.u-width-70[
++ **Syntaxerweiterungen** und neue Features, um das Entwickeln von **komplexen Anwendungen** und Bibliotheken zu erleichtern
++ JavaScript besser an heutige Bedürfnisse anpassen
++ besser verstehbarer und wartbarer Code
+]
+
+---
+
+class: s s-center
+
+## ECMAScript 6
+
+.c-list.u-width-70[
++ im Juni 2015 standardisiert
++ **teilweise Unterstützung** in Browsern
++ kann Code nicht ohne **Transpiler** in älteren Browsern nutzen
++ voll **abwärtskompatibel**
++ fügt nur Features hinzu
++ großer **Meilenstein** für JS, ES5 ist von 2009
+]
+
+---
+
+class: s s-center
+background-image: url(images/es6-compatibility.png)
+
+<!--
+<iframe src="https://kangax.github.io/compat-table/es6/"></iframe>
+-->
+
+???
++ wie man an den vielen roten Kästchen sieht gibt es noch einiges zu tun
+[https://kangax.github.io/compat-table/es6](https://kangax.github.io/compat-table/es6)
+
+---
+
+class: s s-top s_no-padding s_background-cover s_background-top
+background-image: url(images/p/uk-tap-fixed.jpg)
+
+.s--headline-overlay[
+# Probleme von ECMAScript 5
+]
+
+---
+
+class: s s-center
+
+## 1. Generelle Probleme von JavaScript
+
+.c-list[
++ nicht von ES6 behebbar
++ viele davon davon begegnen einem nicht alltäglich
++ erwischen einen immer kalt
++ **schwer zu finden** und zu debuggen
++ [wtfjs.com](http://wtfjs.com)
+]
+
+---
+
+class: s s-top s_background-bottom s_background-50
+background-image: url(images/office-space-lumbergh-hmmm.jpg)
+
+```javascript
+Math.max();
+// -Infinity
+
+Math.min();
+// Infinity
+```
+
+.text-mini[
+<br>
+]
+
+???
++ gibt Beispiele mit denen Firmen Hunderttausende von Dollar verloren haben :(
+
+---
+
+class: s s-top s_no-padding
+
+## Implizite Semikolons
+
+.text-code_medium[
+```javascript
+var a = 1 // (!!!)
+    b = 1;
+
+(function() { // neuer Scope
+  var a = 2 // (!!!)
+      b = 2;
+})();
+
+a; // 1
+b; // 2
+```
+]
+
+.u-width-70.text-small[
+<br>
+Mit Komma an beiden `(!!!)` Stellen wäre `b == 1`.<br>
+Der Zeilenumbruch setzt implizit ein Semikolon, wodurch `b = ...` ein Attribut auf dem globalen Objekt `window` setzt.
+]
+
+---
+
+class: s s-top s_no-padding
+
+## 1. Beispiel: `==` (lose Gleichheit)
+
+.row[
+.col.col-33[
+```javascript
+'0' == 0;
+// true
+```
+
+.text-small[
+<br>String wird zu Integer konvertiert.<br>
+(Hätte genauso gut anders herum sein können.)
+]
+
+]
+
+.col.col-33[
+```javascript
+0  == '';
+// true
+```
+
+.text-small[
+<br>
+`''` wird zu `0` konvertiert.
+<br><br>
+]
+
+```javascript
+parseInt('');
+// NaN
+Number('');
+// 0
+```
+]
+
+
+.col.col-33[
+```javascript
+'0' == '';
+// false
+```
+
+.text-small[
+Keine Konvertierung, sind nicht die gleichen Strings.
+```javascript
+'0' === ''
+// false
+```
+]
+]
+]
+
+.text-mini[
+<br><br>
+Spec: [http://www.ecma-international.org/ecma-262/5.1/#sec-11.9.3](http://www.ecma-international.org/ecma-262/5.1/#sec-11.9.3)
+]
+
+
+???
++ Problem von JavaScript, das ES6 nicht löst
++ paradigmatisch für JS Probleme
++ lose Gleichheit: nach Typenkonvertierung
++ **Fazit**: viel nachschauen, um zu verstehen was genau passiert.
+
+---
+
+class: s s-center
+
+## `==` ist .text-red[**nicht transitiv**]
+
+
+```javascript
+'0' == 0;  // true
+ 0  == ''; // true
+'0' == ''; // false
+```
+
+Denn wenn gilt, dass
+
+```javascript
+a == b;
+b == c;
+```
+
+folgt daraus _nicht_, dass auch `a == c`
+
+???
++ `==` ist **kommutativ** (Seiten vertauschbar) aber **nicht transitiv** (wenn `a==b` und `b==c` folgt daraus nicht immer, dass auch `a==c`)
+
++ Eklärung: http://stackoverflow.com/a/5447170/1881819
+
+**weitere Beispiele:**
+```javascript
+false == '0'        // true
+false == undefined  // false
+false == null       // false
+null == undefined   // true
+
+'      ' == 0 // true
+'\n\r\t' == 0 // true
+```
+
+Quellen:
+http://www.shawnrenner.com/the-dangers-of-double-equals-in-javascript/
+http://stackoverflow.com/a/359509/1881819
+
+---
+
+class: s s-center
+
+## JavaScript Entwickler müssen wissen:
+
+.c-list.u-width-70[
++ nie `==` benutzen, immer nur `===` (strikte Gleichheit)
++ Brendan Eich hätte gerne schon in JavaScript 1.2 die Semantik von `==` so geändert, dass es sich wie das heutige `===` verhält &ndash; war zu spät dafür
++ CoffeeScript hat `==` in der Semantik von JS `===`
++ durch ES6 nicht behebbar
++ Kompilierungswarnungen in Babel mit [ESLint](http://eslint.org)
+]
+
+---
+
+class: s s-center
+
+## ES6 Gotchas
+
++ keine Kommata zwischen Methoden in Klassen (aber in Objekten)
+
+.row.row_no-padding-horizontal[
+
+.col.col-50[
+.text-code_small[
+```javascript
+class User {
+  methodA() {
+    // ,,,
+  }
+
+  methodB() {
+    // ,,, ;
+  }
+}
+```
+]
+]
+
+.col.col-50[
+.text-code_small[
+```javascript
+let user = {
+  methodA() {
+    // ,,,
+  },
+
+  methodB() {
+    // ,,, ;
+  }
+}
+```
+]
+]
+]
+
+---
+
+
+
++ andere Pfeilsyntax für Methoden
++ implizite `returns`
+
+---
+
 class: s s-center s_no-padding s_background-cover
 background-image: url(images/p/death-star-briefing.jpg)
 
@@ -304,7 +608,7 @@ für uns **relevante Versionen**
 
 ---
 
-class: s s-top
+class: s s-top s_no-padding
 
 ## JavaScripts Aufstieg
 
@@ -344,8 +648,10 @@ full stack: Frontend, Backend (nodeJS), Datenbank (Mongo, CouchDB)
 
 ---
 
-class: s s-center s_background-green
-background-image: url(images/aliens-javascript.jpg)
+class: s s-center s_background-cover
+background-image: url(images/p/jumped-the-shark.jpg)
+
+
 
 ???
 + also alles super, wir gehen die neuen Features von ES6 durch und uns haut's alle aus den Socken
@@ -443,86 +749,6 @@ background-image: url(images/brendan-eich.jpg)
 
 ---
 
-class: s s-top
-
-## Beispiel: `==` (lose Gleichheit)
-
-```javascript
-'0' == 0     // true
- 0  == ''    // true
-'0' == ''    // false
-```
-
---
-
-`==` ist .text-red[**nicht transitiv**], da aus
-```javascript
-a == b
-b == c
-```
-_nicht_ folgt, dass `a == c`
-
-???
-+ lose Gleichheit: nach Typenkonvertierung
-+ `==` ist **kommutativ** (Seiten vertauschbar) aber **nicht transitiv** (wenn `a==b` und `b==c` folgt daraus nicht immer, dass auch `a==c`)
-+ **Brendan Eich** wollte schon früh `==` sich wie heutiges `===` verhalten lassen - war allerdings schon in JS 1.2 zu spät :(
-
-**weitere Beispiele:**
-```javascript
-false == '0'        // true
-false == undefined  // false
-false == null       // false
-null == undefined   // true
-
-'      ' == 0 // true     
-'\n\r\t' == 0 // true
-```
-
-Quellen:
-http://www.shawnrenner.com/the-dangers-of-double-equals-in-javascript/
-http://stackoverflow.com/a/359509/1881819
-
----
-
-class: s s-center
-
-# „Draufspachteln“
-.c-list.u-width-70[
-+ Semantik von `==` lässt sich nicht mehr ändern, da bestehender Code davon abhängt
-+ `===` (strikte Gleichheit) hinzugefügt.
-
-+ Noch gröbere Schnitzer wurden aus der Sprache entfernt: früher ließ sich `undefined` überschreiben.
-]  
-
-???
-+ `===` schaut sich `typeof` noch an.
-+ `NaN === NaN` gibt `false`
-+ auf die Variable von `var undefined` wird nicht zugegriffen sondern immer nur auf das echte undefined. `var undefined` wirft keinen Fehler.
-
----
-
-class: s s-top s_background-bottom s_background-50
-background-image: url(images/office-space-lumbergh-hmmm.jpg)
-
-```javascript
-Math.max();
-// -Infinity
-
-Math.min();
-// Infinity
-```
-
-.text-mini[
-<br>
-mehr: [wtfjs.com](http://wtfjs.com)
-]
-
-???
-+ nichts was einem jeden Tag begegnet
-+ gibt Beispiele mit denen Firmen Hunderttausende von Dollar verloren haben :(
-
----
-
 class: s s-center
 
 ```javascript
@@ -583,8 +809,8 @@ background-image: url(images/p/leather-gloves.jpg)
 
 ---
 
-background-image: url(images/javascript-logo.jpg)
 class: s s-top s_background-20 s_background-bottom
+background-image: url(images/javascript-logo.jpg)
 
 ## Warum also JavaScript?
 
@@ -631,6 +857,22 @@ JavaScript ist trotzdem **super**!
 ---
 
 "JavaScript is the only language that I’m aware of that people feel they don’t need to learn before they start using it."
+
+---
+
+class: s s-center
+
+# „Draufspachteln“
+.c-list.u-width-70[
++ Semantik von `==` lässt sich nicht mehr ändern, da bestehender Code davon abhängt
++ `===` (strikte Gleichheit) hinzugefügt.
++ Noch gröbere Schnitzer wurden aus der Sprache entfernt: früher ließ sich `undefined` überschreiben.
+]
+
+???
++ `===` schaut sich `typeof` noch an.
++ `NaN === NaN` gibt `false`
++ auf die Variable von `var undefined` wird nicht zugegriffen sondern immer nur auf das echte undefined. `var undefined` wirft keinen Fehler.
 
 ---
 
@@ -729,3 +971,7 @@ arr[-1] = 'a';
 arr       // []
 arr['-1'] // 'a'
 ```
+
+---
+
+you can create class methods with `static` before method name: http://www.2ality.com/2015/02/es6-classes-final.html

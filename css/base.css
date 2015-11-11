@@ -93,3 +93,8 @@ table > thead td {
 table tbody tr:nth-child(odd) {
   background: #ddd;
 }
+
+iframe {
+  width: 100%;
+  flex-grow: 1;
+}
