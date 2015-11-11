@@ -1017,7 +1017,7 @@ class: s s-center s_padding-none s_background-cover
 background-image: url(images/p/office-space-the-bobs.jpg)
 
 .s--headline-overlay[
-# Fazit
+# Zwischenfazit
 ]
 
 ---
@@ -1101,6 +1101,11 @@ arrow syntax,
 destructuring,
 ...
 
++ kein vollständiger Überblick
+
+???
++ ES6 hat zu viele neue Features, als das man sie alle in anderthalb Stunden vorstellen könnte
+
 ---
 
 class: s s-center
@@ -1171,11 +1176,6 @@ class: s s-center
 
 ---
 
-nicht totzukriegen
-https://brendaneich.github.io/ModernWeb.tw-2015/images/alwaysbetonjs.png
-
----
-
 workarounds vor ES6: jQuery, Underscore.js, JSHint, Babel Warnungen
 
 ---
@@ -1189,29 +1189,9 @@ compile to JS languages (CoffeeScript, ClojureScript, Dart, Typescript, PureScri
 ES6 Features
 + Promises
 + Klassen
-bei beiden: davor Chaos, viele verschiedene Implentierungen
+bei beiden: davor Chaos, viele verschiedene Implementierungen
 
 ES6 macht den Einstieg leichter, man braucht weniger Libraries wie underscore.JS oder jQuery
-
----
-
-class: s s-center
-
-BEI PRAXISTEIL AM ANFANG SAGEN
-# Nicht
-
-+ kein vollständiger Überblick
-
-???
-+ ES6 hat zu viele neue Features, als das man sie alle in anderthalb Stunden vorstellen könnte
-
----
-
-class: s s-center
-
-# Babel
-
-`npm install -g babel-cli`
 
 ---
 
@@ -1253,7 +1233,7 @@ class: s s-center
 ## Schwierigkeit für Sprachschöpfer
 
 .c-list.u-width-70[
-+ Konzequenzen von Änderungen und Erweiterungen sind schwer abzuschätzen
++ Konsequenzen von Änderungen und Erweiterungen sind schwer abzuschätzen
   - deshalb war ES6 sechs Jahre in der Mache
 + Features, die zunächst gefeiert wurden und dann zum Tod der Sprache führten
   - COBOLs `ALTER`-Befehl, um `GOTO`-Ziele von Paragraphen von außen zu ändern
