@@ -174,6 +174,24 @@ Math.min();
 
 ---
 
+class: s s-center
+
+# Array-Indizes
+
+```
+var myArray = [];
+
+myArray[-1] = 'a';
+myArray;          // []
+myArray.length;   // 0
+myArray['-1'];    // 'a'
+```
+
++ Array-indizes außerhalb des gültigen Nummernbereichs (0 bis 2<sup>32</sup>-1) werden zu Strings umgewandelt.
++ JS-Arrays können Strings als Indizes haben, diese Elemente lassen sich jedoch nur explizit auslesen und erhöhen `length` nicht.
+
+---
+
 class: s s-top s_no-padding
 
 ## Implizite Semikolons
@@ -203,7 +221,7 @@ Der Zeilenumbruch setzt implizit ein Semikolon, wodurch `b = ...` ein Attribut a
 
 class: s s-top s_no-padding
 
-## 1. Beispiel: `==` (lose Gleichheit)
+## `==` (lose Gleichheit)
 
 .row[
 .col.col-33[
@@ -314,15 +332,55 @@ http://stackoverflow.com/a/359509/1881819
 
 class: s s-center
 
-## JavaScript Entwickler müssen wissen:
+## `==` vs `===`
 
 .c-list.u-width-70[
 + nie `==` benutzen, immer nur `===` (strikte Gleichheit)
 + Brendan Eich hätte gerne schon in JavaScript 1.2 die Semantik von `==` so geändert, dass es sich wie das heutige `===` verhält &ndash; war zu spät dafür
 + CoffeeScript hat `==` in der Semantik von JS `===`
 + durch ES6 nicht behebbar
-+ Kompilierungswarnungen in Babel mit [ESLint](http://eslint.org)
++ Linterwarnungen bei Verwendung von `==`
 ]
+
+---
+
+class: s s-center
+
+## 90.000$ Bug
+
+```javascript
+var a = [];
+var b;
+a[b++] = 1;
+// wirft keinen Fehler :(
+```
+
+.text-mini[
+Quelle: [Type safety and RNGs](https://medium.com/@octskyward/type-safety-and-rngs-40e3ec71ab3a)
+]
+
+???
++ b ist `undefined`
++ `undefined++` gibt `NaN`
++ a[NaN] verändert a nicht, wirft aber auch keinen Fehler
++ $100.000 Schaden, da dieser Code 2h in einem JS Bitcion Client online war
+
+---
+
++ _Principle of Least Surprise_ wird deutlich verletzt
++ viele versteckte Fehlerquellen
++ schwer zu beherrschende und zu meisternde Sprache
++ viel Spezialwissen und Erfahrung nötig
+
+---
+
+class: s s-center
+
+## Probleme, die ES6 addressiert
++ `this`
++ block scope (hoisting)
+  -> Ian Davis Präsentation
++ Promises, Klassen, Module vereinheitlicht (davor Fragmentierung der Tools)
 
 ---
 
@@ -749,26 +807,6 @@ background-image: url(images/brendan-eich.jpg)
 
 ---
 
-class: s s-center
-
-```javascript
-var a = [];
-var b;
-a[b++] = 1;
-// kein Fehler :(
-```
-
-.text-mini[
-Quelle: [Type safety and RNGs](https://medium.com/@octskyward/type-safety-and-rngs-40e3ec71ab3a)
-]
-
-???
-+ b ist `undefined`
-+ `undefined++` gibt `NaN`
-+ a[NaN] verändert a nicht, wirft aber auch keinen Fehler
-
----
-
 class: s s-top
 
 ## JavaScript in einem Bild
@@ -926,6 +964,9 @@ class: s s-center
 + ES7 ist in der Mache - soll 2016 kommen
 + Aufnahmeprozess neuer Features ist durch Entwicklergemeinde mitgesteuert, mit Babel kann man früh Feedback zu vorgeschlagenen Syntaxerweiterungen bekommen
 
+## Trends:
++ JS sicherer machen mit zu-JS-kompilierenden Sprachen (Clojurescript, Typescript, Purescript, Elm etc.)
+
 ---
 
 ## Tip
@@ -952,25 +993,6 @@ projects.formidablelabs.com/es6-interactive-guide/
 https://kangax.github.io/compat-table/es6/
 
 https://github.com/jashkenas/coffeescript/wiki/list-of-languages-that-compile-to-js
-
-
-
----
-
-http://speakingjs.com/es5/ch18.html
-
-Indices are numbers i in the range 0 ≤ i < 232−1.
-The maximum length is 232−1.
-
-Indices that are out of range are treated as normal property keys (strings!). They don’t show up as array elements and they don’t influence the property length. For example:
-
-```javascript
-var arr = [];
-
-arr[-1] = 'a';
-arr       // []
-arr['-1'] // 'a'
-```
 
 ---
 
