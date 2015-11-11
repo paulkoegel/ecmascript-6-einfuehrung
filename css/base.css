@@ -115,3 +115,7 @@ iframe {
 .remark-notes-area li {
   font-size: 2.5rem;
 }
+
+.remark-notes-area .remark-code {
+  font-size: 2rem;
+}

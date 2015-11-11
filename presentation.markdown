@@ -430,7 +430,7 @@ Der Zeilenumbruch **setzt implizit ein Semikolon**, wodurch<br> `b = ...` keine 
 
 ---
 
-class: s s-top s_padding-small
+class: s s-top s_padding-none
 
 ## I.5 `==` (lose Gleichheit)
 
@@ -481,10 +481,8 @@ class: s s-top s_padding-none
 ```
 
 .text-small[
-<br>String wird zu Integer konvertiert.<br>
-(Hätte genauso gut andersherum sein können.)
+<br>`'0'` wird zu `0` konvertiert.<br>
 ]
-
 ]
 
 .col.col-33[
@@ -498,13 +496,6 @@ class: s s-top s_padding-none
 `''` wird zu `0` konvertiert.
 <br><br>
 ]
-
-```javascript
-parseInt('');
-// NaN
-Number('');
-// 0
-```
 ]
 
 
@@ -535,6 +526,14 @@ Spec: [http://www.ecma-international.org/ecma-262/5.1/#sec-11.9.3](http://www.ec
 + paradigmatisch für JS Probleme
 + lose Gleichheit: nach Typenkonvertierung
 + **Fazit**: viel nachschauen, um zu verstehen was genau passiert.
+
+### (REF)
+```javascript
+parseInt('');
+// NaN
+Number('');
+// 0
+```
 
 ---
 
