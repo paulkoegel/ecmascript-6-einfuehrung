@@ -6,7 +6,12 @@
 }
 
 .c-list > ul > li {
-  margin-bottom: 20px;
+  margin-bottom: 2rem;
+  line-height: 4rem;
+}
+
+.c-list_narrow > ul > li {
+  margin-bottom: 1rem;
   line-height: 4rem;
 }
 

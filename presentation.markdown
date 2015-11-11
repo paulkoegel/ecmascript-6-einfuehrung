@@ -159,7 +159,7 @@ background-image: url(images/p/uk-tap-fixed.jpg)
 
 class: s s-center
 
-## I. Generelle Probleme von JavaScript
+## I. Fünf generelle Probleme von JavaScript
 ## II. Probleme, die ES6 lindert
 
 ---
@@ -259,6 +259,9 @@ myArray[foo++] = 'x';
 + **C**: Wirft Fehler bei der letzten Zuweisung.
 ]
 
+???
++ .text-red[**Antwortfolie weglassen, um Zeit zu sparen?**]
+
 ---
 
 class: s s-top s_padding-small
@@ -290,27 +293,9 @@ myArray[NaN];  //'x'
 
 ---
 
-class: s s-center
-
-## Fazit zu generellen Problemen
-
-.c-list.u-width-70[
-+ **nicht durch ES6 behebbar** (Abwärtskompatibilität)
-+ _Principle of Least Surprise_ verletzt
-+ versteckte Fehlerquellen
-+ schwer zu finden und zu debuggen
- -  können zu **bösen Überraschungen** führen
-+ alle Sprachen haben Überraschungen, aber JS hat eher viele
-+ [wtfjs.com](http://wtfjs.com)
-+ JS ist schwer, Erfahrung wichtig
-+ Codeanalysetools wie JSHint helfen dabei, sich nicht in den Fuß zu schießen
-]
-
----
-
 class: s s-top s_padding-small
 
-## Quiz: Scope
+## I.4 Quiz: Scope
 
 .text-code_medium[
 ```javascript
@@ -327,15 +312,21 @@ b; // ???
 ```
 ]
 
+.c-list.c-list_narrow[
++ **A**: `a == 1; b == 1;`
++ **B**: `a == 1; b == 2;`
++ **C**: `a == 2; b == 2;`
+] 
+
 ???
 + Funktion hat eigenen Scope
 + IIFE muss aufgerufen werden, sonst könnten die äußeren `a` und `b` nicht potentiell überschrieben werden (wenn man in der fn var weglässt werden die äußeren Variablen überschrieben, aber nur wenn man die IIFE aufruft)
 
 ---
 
-class: s s-top
+class: s s-top s_padding-small
 
-## Quiz: Scope
+## I.4 Antwort: A
 
 .text-code_medium[
 ```javascript
@@ -357,10 +348,12 @@ b; // 1
 
 ---
 
-class: s s-top s_padding-none
+class: s s-top s_padding-small
 
-## Was passiert wenn man 2 Semikolons weglässt?
+## I.4 Was passiert wenn man 2 Semikolons weglässt?
 
+.row[
+.col.col-50[
 .text-code_medium[
 ```javascript
 var a = 1 // (!!!)
@@ -375,12 +368,24 @@ a; // ???
 b; // ???
 ```
 ]
+]
+.col.col-50[
+.c-list.c-list_narrow[
++ **A**: `a == 1; b == 1;`
++ **B**: `a == 1; b == 2;`
++ **C**: `a == 2; b == 2;`
+]
+]
+]
+
 ---
 
-class: s s-top s_padding-none
+class: s s-top s_padding-small
 
-## Was passiert wenn man 2 Semikolons weglässt?
+## I.4 Antwort: B
 
+.row[
+.col.col-50[
 .text-code_medium[
 ```javascript
 var a = 1 // (!!!)
@@ -395,17 +400,60 @@ a; // 1
 b; // 2
 ```
 ]
-
-.u-width-70.text-small[
-<br>
-Der Zeilenumbruch setzt implizit ein Semikolon, wodurch<br> `b = ...` keine Variablenzuweisung mehr ist, sondern eine Attributszuweisung auf dem globalen `window`-Objekt wird.
 ]
+
+.col.col-50[
+.u-unstyled-wrapper[
+Der Zeilenumbruch **setzt implizit ein Semikolon**, wodurch<br>
+`b = ...` keine Variablenzuweisung mehr ist, sondern zur Attributszuweisung auf dem globalen `window`-Objekt wird.
+]
+]
+]
+
+---
+
+class: s s-top s_padding-small
+
+## I.5 `==` (lose Gleichheit)
+
+.row[
+.col.col-33[
+```javascript
+'0' == 0;
+// ???
+```
+]
+
+.col.col-33[
+```javascript
+0  == '';
+// ???
+```
+]
+
+.col.col-33[
+```javascript
+'0' == '';
+// ???
+```
+]
+]
+
+.c-list.u-width-50[
+<br>
++ **A**: `true, true, true`
++ **C**: `true, true, false`
++ **D**: `false, false, false`
+]
+
+???
++ Letztes generelles Problem
 
 ---
 
 class: s s-top s_padding-none
 
-## `==` (lose Gleichheit)
+## I.5 `==` (lose Gleichheit)
 
 .row[
 .col.col-33[
@@ -472,10 +520,9 @@ Spec: [http://www.ecma-international.org/ecma-262/5.1/#sec-11.9.3](http://www.ec
 
 ---
 
-class: s s-center
+class: s s-center s_padding-small
 
-## `==` ist .text-red[**nicht transitiv**]
-
+## I.5 `==` ist .text-red[**nicht transitiv**]
 
 ```javascript
 '0' == 0;  // true
@@ -516,15 +563,89 @@ http://stackoverflow.com/a/359509/1881819
 
 class: s s-center
 
-## `==` vs `===`
+## I.5 `==` vs `===`
 
 .c-list.u-width-70[
-+ nie `==` benutzen, immer nur `===` (strikte Gleichheit)
-+ Brendan Eich hätte gerne schon in JavaScript 1.2 die Semantik von `==` so geändert, dass es sich wie das heutige `===` verhält &ndash; war zu spät dafür
-+ CoffeeScript hat `==` in der Semantik von JS `===`
-+ durch ES6 nicht behebbar
-+ Linterwarnungen bei Verwendung von `==`
++ Semantik von `==` **nicht mehr veränderbar** (auch nicht in ES6), da es bestehenden Code kaputtmachen würde
++ Lösung: `===` hinzugefügt (strikte Gleichheit)
++ nie `==` benutzen, nur `===`
++ **JSHint** warnt vor Verwendung von `==`
 ]
+
+???
++ Brendan Eich wollte für JavaScript 1.2 einen Opt-in einbauen, verworfen, da es zu wenig Leute benutzt hätten
+
+---
+
+class: s s-center s_padding-none s_background-cover
+background-image: url(images/p/office-space-the-bobs.jpg)
+
+.s--headline-overlay[
+# Fazit
+]
+
+---
+
+class: s s-top
+
+## JavaScript in einem Bild
+.u-width-70[
+![](images/javascript-good-bad-parts.jpg)
+]
+
+???
++ klassische Metapher für JavaScript
++ nur kleiner Teil der Sprache ist brauchbar
++ im linken Buch steht alles über JavaScript
++ das rechte Buch bekommt man, wenn man die ganzen Sachen, die an JavaScript schlecht sind, aus dem dicken Buch herausreißt.
+
+---
+
+class: s s-center
+
+## Fazit zu generellen Problemen
+
+.c-list.c-list_narrow.u-width-70[
++ **nicht durch ES6 behebbar** (Abwärtskompatibilität)
++ _Principle of Least Surprise_ verletzt
+ - versteckte Fehlerquellen
+ - **böse Überraschungen**, schwer zu finden &amp; debuggen
++ alle Sprachen haben Überraschungen, aber JS hat relativ viele
++ JS ist schwer, Erfahrung wichtig
++ Codeanalysetools wie **JSHint** helfen dabei, sich nicht in den Fuß zu schießen (wenn sie benutzt werden)
++ [wtfjs.com](http://wtfjs.com)
+]
+
+---
+
+class: s s-top
+
+# Noch ein Bild
+
+![If JavaScript were a weapon: sword without a hilt](images/javascript-weapon.png)
+
+.text-center.text-mini[
+Quelle: [If programming languages were weapons](http://bjorn.tipling.com/if-programming-languages-were-weapons)
+]
+
+???
++ Schwert ohne Griff, bei dem man sich unweigerlich blutige Finger holt
+
+---
+
+class: s s-top s_background-bottom
+background-image: url(images/p/leather-gloves.jpg)
+
+.u-no-margin-vertical[
+## ECMAScript 6 =<br> Lederhandschuhe für JavaScript
+]
+.u-width-70.text-small[
++ .text-smaller[man kann sich immer noch verletzen und muss die Handschuhe nicht anziehen]
++ .text-smaller[_wenn_ man sie anzieht (d.h. neue ES6-Funktionen nutzt), wird JavaScript um einiges besser]
+]
+
+???
++ durchkommen der Zacken lässt sich nicht vermeiden (Abwärtskompatibilität), aber man kann jetzt besser an den weniger spitzen Stellen seine Finger ablegen, um das Schwert zu halten
 
 ---
 
@@ -947,46 +1068,6 @@ background-image: url(images/brendan-eich.jpg)
 ]
 <br><br><br>
 ]
-
----
-
-class: s s-top
-
-## JavaScript in einem Bild
-.u-width-70[
-![](images/javascript-good-bad-parts.jpg)
-]
-
-???
-klassische Metapher für JavaScript
-im linken Buch steht alles über JavaScript
-das rechte Buch bekommt man, wenn man die ganzen Sachen, die an JavaScript schlecht sind, aus dem dicken Buch herausreißt.
-
----
-
-class: s s-top
-
-## ...
-
-![If JavaScript were a weapon: sword without a hilt](images/javascript-weapon.png)
-.text-center.text-mini[
-Quelle: [If programming languages were weapons](http://bjorn.tipling.com/if-programming-languages-were-weapons)
-]
-
-???
-+ Schwert ohne Griff, bei dem man sich unweigerlich blutige Finger holt
-
----
-
-class: s s-top s_background-bottom
-background-image: url(images/p/leather-gloves.jpg)
-
-<br>
-<br>
-# ECMAScript 6 =<br> Lederhandschuhe für JavaScript
-
-???
-+ durchkommen der Zacken lässt sich nicht vermeiden (Abwärtskompatibilität), aber man kann jetzt besser an den weniger spitzen Stellen seine Finger ablegen, um das Schwert zu halten
 
 ---
 
