@@ -50,7 +50,7 @@ background-image: url(images/p/dilbert-lunch-cut.png)
 1. **ECMAScript 6 Praxis**
   + Begrifflichkeiten
   + Probleme von JS/ES5
-  + Sprachfeatures
+  + Neue Sprachfeatures
   + Wie benutzen?
 ]
 
@@ -297,6 +297,8 @@ class: s s-top s_padding-small
 
 ## I.4 Quiz: Scope
 
+.row[
+.col.col-50.u-padding-left-150[
 .text-code_medium[
 ```javascript
 var a = 1,
@@ -311,12 +313,16 @@ a; // ???
 b; // ???
 ```
 ]
+]
 
+.col.col-50[
 .c-list.c-list_narrow[
 + **A**: `a == 1; b == 1;`
 + **B**: `a == 1; b == 2;`
 + **C**: `a == 2; b == 2;`
 ] 
+]
+]
 
 ???
 + Funktion hat eigenen Scope
@@ -328,6 +334,8 @@ class: s s-top s_padding-small
 
 ## I.4 Antwort: A
 
+.row[
+.col.col-50.u-padding-left-150[
 .text-code_medium[
 ```javascript
 var a = 1,
@@ -342,21 +350,28 @@ a; // 1
 b; // 1
 ```
 ]
+]
+
+.col.col-50[
+# &nbsp;
+]
+]
 
 ???
 + Funktion hat eigenen Scope
++ console.log innerhalb der Funktion würde `2` für `a` und `b` ausgeben
 
 ---
 
 class: s s-top s_padding-small
 
-## I.4 Was passiert wenn man 2 Semikolons weglässt?
+## I.4 Was passiert, wenn man ein Komma vergisst?
 
 .row[
-.col.col-50[
+.col.col-50.u-padding-left-150[
 .text-code_medium[
 ```javascript
-var a = 1 // (!!!)
+var a = 1,
     b = 1;
 
 (function() {
@@ -385,10 +400,10 @@ class: s s-top s_padding-small
 ## I.4 Antwort: B
 
 .row[
-.col.col-50[
+.col.col-50.u-padding-left-150[
 .text-code_medium[
 ```javascript
-var a = 1 // (!!!)
+var a = 1,
     b = 1;
 
 (function() {
@@ -403,12 +418,15 @@ b; // 2
 ]
 
 .col.col-50[
-.u-unstyled-wrapper[
-Der Zeilenumbruch **setzt implizit ein Semikolon**, wodurch<br>
-`b = ...` keine Variablenzuweisung mehr ist, sondern zur Attributszuweisung auf dem globalen `window`-Objekt wird.
+.text-smaller.u-line-height-37[
+Der Zeilenumbruch **setzt implizit ein Semikolon**, wodurch<br> `b = ...` keine Variablendeklaration mehr ist, sondern zur Attributszuweisung auf dem globalen `window`-Objekt wird.
 ]
 ]
 ]
+
+???
+## (REF)
++ Variablendeklarationen im globalen Kontext setzen einfach Attribute auf `window`.]
 
 ---
 
