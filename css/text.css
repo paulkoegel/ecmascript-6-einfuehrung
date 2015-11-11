@@ -10,6 +10,14 @@
   font-size: 2rem;
 }
 
+.text-smallest {
+  font-size: 2.5rem;
+}
+
+.text-smaller {
+  font-size: 2.75rem;
+}
+
 .text-small {
   font-size: 3rem;
 }

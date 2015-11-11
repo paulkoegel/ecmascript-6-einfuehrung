@@ -28,13 +28,14 @@ class: s s-top s_background-grey s_background-50 s_background-bottom
 background-image: url(images/paul-kogel.jpg)
 
 # Paul Kögel
-+ Frontends bei [.text-green[Railslove]](http://railslove.com)
++ User Interfaces bei [.text-green[Railslove]](http://railslove.com)
 + JavaScript, Ruby, Clojure
 + [@wakkahari](https://twitter.com/wakkahari)
 
 
 ???
-+ kurz vorstellen: Entwickler bei **Railslove**: Webfrontends mit JavaScript, Ruby und Clojure
++ kurz vorstellen
++ Frontends: JavaScript vor allem aus dem **Browser**
 
 ---
 
@@ -47,7 +48,7 @@ background-image: url(images/p/dilbert-lunch-cut.png)
 .col.col-50.u-padding-left-100[
 1. **ECMAScript 6 Praxis**
   + Begrifflichkeiten
-  + Probleme von ES5
+  + Probleme von JS/ES5
   + Sprachfeatures
   + Wie benutzen?
 ]
@@ -55,9 +56,9 @@ background-image: url(images/p/dilbert-lunch-cut.png)
 .col.col-50.c-inhalt--ol-with-counter[
 2. **Hintergrund**
   + Geschichte von JavaScript
-  + Lektionen daraus für Sprachdesign und -auswahl
+  + Lektionen für Sprachdesign und -auswahl
 3. Fazit und Ausblick
-  + Assembler des Webs
+  + JS als Assembler des Webs
 ]
 ]
 
@@ -127,7 +128,7 @@ class: s s-center
 + **teilweise Unterstützung** in Browsern
 + kann Code nicht ohne **Transpiler** in älteren Browsern nutzen
 + voll **abwärtskompatibel**
-+ fügt nur Features hinzu
+  - fügt nur Features hinzu
 + großer **Meilenstein** für JS, ES5 ist von 2009
 ]
 
@@ -146,63 +147,42 @@ background-image: url(images/es6-compatibility.png)
 
 ---
 
-class: s s-top s_no-padding s_background-cover s_background-top
+class: s s-bottom s_padding-none s_background-cover s_background-top
 background-image: url(images/p/uk-tap-fixed.jpg)
 
 .s--headline-overlay[
-# Probleme von ECMAScript 5
+# Probleme von JS/ECMAScript 5
 ]
 
 ---
 
 class: s s-center
 
-## 1. Generelle Probleme von JavaScript
-
-.c-list[
-+ nicht von ES6 behebbar
-+ viele davon davon begegnen einem nicht alltäglich
-+ erwischen einen immer kalt
-+ **schwer zu finden** und zu debuggen
-+ [wtfjs.com](http://wtfjs.com)
-]
+## I. Generelle Probleme von JavaScript
+## II. Probleme, die ES6 lindert
 
 ---
 
-class: s s-center
+class: s s-top s_padding-small
 
-## Quiz
+## I.1 Quiz: `Math.max`
 ```javascript
 Math.max()
 // ???
-
-// A: Infinity
-// B: 0
-// C: -Infinity
-// D: NaN
-// E: 9007199254740992
 ```
+
++ **A**: `Infinity`
++ **B**: `0`
++ **C**: `-Infinity`
++ **D**: `NaN`
++ **E**: `9007199254740992`
 
 ---
 
-class: s s-center
-
-## Antwort: C
-```javascript
-Math.max()
-// ???
-
-// A: Infinity
-// B: 0
-// C: -Infinity (!!!)
-// D: NaN
-// E: 9007199254740992
-```
-
----
-
-class: s s-top s_background-bottom s_background-50
+class: s s-top s_padding-small s_background-bottom s_background-40 s_padding-small
 background-image: url(images/office-space-lumbergh-hmmm.jpg)
+
+## I.1 Antwort: C
 
 ```javascript
 Math.max();
@@ -212,36 +192,127 @@ Math.min();
 // Infinity
 ```
 
-.text-mini[
+---
+
+class: s s-top s_padding-small
+
+## I.2 Quiz: Array-Indizes
+
+```javascript
+var myArray = [1, 2, 3];
+myArray[-1] = 'a';
+myArray;          // ?????????
+```
+
+.c-list[
 <br>
++ **A**: `[1, 2, 3]`
++ **B**: `['a', 1, 2, 3]`
++ **C**: `[1, 2, 'a']`
 ]
 
 ???
-+ gibt Beispiele mit denen Firmen Hunderttausende von Dollar verloren haben :(
++ Ruby: `myArray[-1]` für letztes Element des Arrays
 
 ---
 
-class: s s-top s_small-padding
+class: s s-top s_padding-small
 
-# Array-Indizes
+## I.2 Antwort: A
 
-```
-var myArray = [];
-
+```javascript
+var myArray = [1, 2, 3];
 myArray[-1] = 'a';
-myArray;          // []
-myArray.length;   // 0
+myArray;          // [1, 2, 3]
+myArray.length;   // 3
 myArray['-1'];    // 'a'
 ```
-<br>
-.c-list.u-width-70[
-+ Array-indizes außerhalb des gültigen Nummernbereichs (0 bis 2<sup>32</sup>-1) werden zu Strings umgewandelt.
-+ JS-Arrays können Strings als Indizes haben, diese Elemente lassen sich jedoch nur explizit auslesen und erhöhen `length` nicht.
+.c-list.u-padding-top-40[
++ .text-smaller[Arrays können **gleichzeitig assoziativ und numerisch** indizierte Elemente haben]
++ .text-smaller[Array-Indizes außerhalb **[0, 2<sup>32</sup>-1]** werden zu Strings umgewandelt]
++ .text-smaller[assoziativ indizierte Elemente lassen sich nur explizit auslesen.]
++ .text-smaller[&rArr; Arrays nur mit numerischem Index, Objekte für assoziative Arrays nutzen.]
+]
+
+???
+# (REF)
++ außerdem: `myArray[-1]; // 'a'` und `myArray['0']; // 1`
++ [JavaScript Associative Arrays Considered Harmful](http://andrewdupont.net/2006/05/18/javascript-associative-arrays-considered-harmful)
+
+---
+
+class: s s-top s_padding-small
+
+## I.3 Quiz: 90.000$ Bug
+
+```javascript
+var myArray = [];
+var foo;
+myArray[foo++] = 'x';
+```
+
+**Was ist `myArray`?**
+.c-list[
++ **A**: `[<1 empty slot>, 'x']`
++ **B**:  `[]`
++ **C**: Wirft Fehler bei der letzten Zuweisung.
 ]
 
 ---
 
-class: s s-top
+class: s s-top s_padding-small
+
+## I.3 Antwort: B
+
+```javascript
+var myArray = [];
+var foo;
+myArray[foo++] = 'x';
+
+foo;           // undefined
+foo++;         // NaN
+myArray;       // []
+myArray[NaN];  //'x'
+```
+
+.c-list.u-width-70.u-padding-top-40[
++ 90.000$ Schaden, da dieser Code ein paar Stunden in einem JS Bitcoin Client online war
+]
+
+???
++ `foo` ist `undefined`
++ `undefined++` gibt `NaN`
++ `myArray[NaN]` schreibt assoziativ indiziertes Element, kein Fehler wird geworfen
+
+### (REF)
++ Quelle: [Type safety and RNGs](https://medium.com/@octskyward/type-safety-and-rngs-40e3ec71ab3a)
+
+---
+
++ _Principle of Least Surprise_ wird deutlich verletzt
++ viele versteckte Fehlerquellen
++ schwer zu beherrschende und zu meisternde Sprache
++ viel Spezialwissen und Erfahrung nötig
+
+---
+
+class: s s-center
+
+## Fazit zu generellen Problemen
+
+.c-list.u-width-70[
++ **nicht durch ES6 behebbar** (Abwärtskompatibilität)
++ schwer zu finden und zu debuggen
+ -  können zu **bösen Überraschungen** führen
++ alle Sprachen haben Überraschungen, aber JS hat eher viele
++ [wtfjs.com](http://wtfjs.com)
++ JS ist schwer, Erfahrung wichtig
++ Codeanalysetools wie JSHint helfen dabei, sich nicht in den Fuß zu schießen
+]
+
+---
+
+class: s s-top s_padding-small
 
 ## Quiz: Scope
 
@@ -290,7 +361,7 @@ b; // 1
 
 ---
 
-class: s s-top s_no-padding
+class: s s-top s_padding-none
 
 ## Was passiert wenn man 2 Semikolons weglässt?
 
@@ -310,7 +381,7 @@ b; // ???
 ]
 ---
 
-class: s s-top s_no-padding
+class: s s-top s_padding-none
 
 ## Was passiert wenn man 2 Semikolons weglässt?
 
@@ -336,7 +407,7 @@ Der Zeilenumbruch setzt implizit ein Semikolon, wodurch<br> `b = ...` keine Vari
 
 ---
 
-class: s s-top s_no-padding
+class: s s-top s_padding-none
 
 ## `==` (lose Gleichheit)
 
@@ -463,36 +534,6 @@ class: s s-center
 
 class: s s-center
 
-## 90.000$ Bug
-
-```javascript
-var a = [];
-var b;
-a[b++] = 1;
-// wirft keinen Fehler :(
-```
-
-.text-mini[
-Quelle: [Type safety and RNGs](https://medium.com/@octskyward/type-safety-and-rngs-40e3ec71ab3a)
-]
-
-???
-+ b ist `undefined`
-+ `undefined++` gibt `NaN`
-+ a[NaN] verändert a nicht, wirft aber auch keinen Fehler
-+ $100.000 Schaden, da dieser Code 2h in einem JS Bitcion Client online war
-
----
-
-+ _Principle of Least Surprise_ wird deutlich verletzt
-+ viele versteckte Fehlerquellen
-+ schwer zu beherrschende und zu meisternde Sprache
-+ viel Spezialwissen und Erfahrung nötig
-
----
-
-class: s s-center
-
 ## Probleme, die ES6 addressiert
 + `this`
 + block scope (hoisting)
@@ -507,7 +548,7 @@ class: s s-center
 
 + keine Kommata zwischen Methoden in Klassen (aber in Objekten)
 
-.row.row_no-padding-horizontal[
+.row.row_padding-none-horizontal[
 
 .col.col-50[
 .text-code_small[
@@ -544,14 +585,16 @@ let user = {
 
 ---
 
+## ES6 Gotchas
 
-
+.c-list.u-width-70[
 + andere Pfeilsyntax für Methoden
 + implizite `returns`
+]
 
 ---
 
-class: s s-center s_no-padding s_background-cover
+class: s s-center s_padding-none s_background-cover
 background-image: url(images/p/death-star-briefing.jpg)
 
 .s--headline-overlay[
@@ -620,7 +663,7 @@ Quellen:
 
 ---
 
-class: s s-top s_no-padding
+class: s s-top s_padding-none
 
 ## Standardisierung für viele Dialekte
 
@@ -770,7 +813,7 @@ für uns **relevante Versionen**
 
 ---
 
-class: s s-top s_no-padding
+class: s s-top s_padding-none
 
 ## JavaScripts Aufstieg
 
@@ -791,7 +834,7 @@ TIOBE Index vgl.: [http://www.heise.de/developer/meldung/Programmiersprachen-Top
 
 ---
 
-class: s s-top s_no-padding s_background-bottom s_background-50
+class: s s-top s_padding-none s_background-bottom s_background-50
 background-image: url(images/full-stack-homer.jpg)
 
 .u-no-margin-bottom[
@@ -820,7 +863,7 @@ background-image: url(images/p/jumped-the-shark.jpg)
 
 ---
 
-class: s s-center s_no-padding s_background-cover
+class: s s-center s_padding-none s_background-cover
 background-image: url(images/p/island-storm.jpg)
 
 .s--headline-overlay[
@@ -881,7 +924,7 @@ class: s s-top s_background-red
 
 ---
 
-class: s s-bottom s_no-padding s_background-cover
+class: s s-bottom s_padding-none s_background-cover
 background-image: url(images/p/death-star-2-weakness.jpg)
 
 .s--headline-overlay[
@@ -1074,7 +1117,7 @@ class: s s-center
 
 ---
 
-class: s s-top s_background-25 s_background-bottom s_small-padding
+class: s s-top s_background-25 s_background-bottom s_padding-small
 background-image: url(images/blobfish.jpg)
 
 ## Evolution von Programmiersprachen
@@ -1143,6 +1186,13 @@ projects.formidablelabs.com/es6-interactive-guide/
 https://kangax.github.io/compat-table/es6/
 
 https://github.com/jashkenas/coffeescript/wiki/list-of-languages-that-compile-to-js
+
+---
+
+Bildquellen:
++ Dilbert
++ Office Space
++ Star Wars
 
 ---
 

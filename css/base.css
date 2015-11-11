@@ -72,6 +72,7 @@ li {
 }
 
 .remark-inline-code {
+  font-family: Menlo, 'Droid Sans Mono', monospace;
   color: #284EC8;
   font-weight: bold;
 }
@@ -97,4 +98,20 @@ table tbody tr:nth-child(odd) {
 iframe {
   width: 100%;
   flex-grow: 1;
+}
+
+.remark-notes-area h1 {
+  font-size: 4rem;
+}
+
+.remark-notes-area h2 {
+  font-size: 3.5rem;
+}
+
+.remark-notes-area h3 {
+  font-size: 3rem;
+}
+
+.remark-notes-area li {
+  font-size: 2.5rem;
 }

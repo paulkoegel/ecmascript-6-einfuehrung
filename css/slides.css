@@ -56,7 +56,7 @@
   justify-content: center;
 }
 
-.row_no-padding-horizontal .col:first-of-type {
+.row_padding-none-horizontal .col:first-of-type {
   padding-left: 0;
 }
 
@@ -118,7 +118,6 @@
 .s-image--source {
   margin-bottom: -40px;
   font-size: 1.5rem;
-  w
 }
 
 /* BACKGROUNDS */
@@ -145,7 +144,7 @@
 }
 
 .s_background-40 {
-  background-size: auto 30% !important;
+  background-size: auto 40% !important;
 }
 
 .s_background-50 {
@@ -209,11 +208,11 @@
   margin: 0;
 }
 
-.s_no-padding {
+.s_padding-none {
   padding: 0
 }
 
-.s_small-padding {
+.s_padding-small {
   padding: 2rem;
 }
 
