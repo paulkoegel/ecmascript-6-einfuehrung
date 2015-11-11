@@ -687,10 +687,6 @@ myArray;          // ?????????
 + **C**: `[1, 2, 'a']`
 ]
 
-???
-+ Ruby: `myArray[-1]` für letztes Element des Arrays
-
-
 ---
 
 class: s s-top s_padding-small
@@ -718,7 +714,7 @@ myArray['-1'];    // 'a'
 
 ---
 
-class: s s-top s_padding-small
+class: s s-top s-left
 
 ## I.3 Quiz: 90.000$ Bug
 
@@ -740,7 +736,26 @@ myArray[foo++] = 'x';
 
 ---
 
-class: s s-top s_padding-small
+class: s s-top s-left
+
+## I.3 Quiz: 90.000$ Bug
+
+```javascript
+var myArray = [];
+var foo;
+myArray[foo++] = 'x';
+```
+
+**Was ist `myArray`?**
+.c-list[
++ **A**: `[<1 empty slot>, 'x']`
++ .text-background-translucent-yellow[**B**:  `[]`]
++ **C**: Wirft Fehler bei der letzten Zuweisung.
+]
+
+---
+
+class: s s-top s-left
 
 ## I.3 Antwort: B
 
@@ -749,10 +764,10 @@ var myArray = [];
 var foo;
 myArray[foo++] = 'x';
 
-foo;           // undefined
-foo++;         // NaN
-myArray;       // []
-myArray[NaN];  //'x'
+*foo;           // undefined
+*foo++;         // NaN
+*myArray;       // []
+*myArray[NaN];  //'x'
 ```
 
 .c-list.u-width-70.u-padding-top-40[
@@ -769,7 +784,7 @@ myArray[NaN];  //'x'
 
 ---
 
-class: s s-top s_padding-small
+class: s s-top
 
 ## I.4 Quiz: Scope
 
@@ -806,9 +821,9 @@ b; // ???
 
 ---
 
-class: s s-top s_padding-small
+class: s s-top
 
-## I.4 Antwort: A
+## I.4 Quiz: Scope
 
 .row[
 .col.col-50.u-padding-left-150[
@@ -822,14 +837,18 @@ var a = 1,
       b = 2;
 })();
 
-a; // 1
-b; // 1
+a; // ???
+b; // ???
 ```
 ]
 ]
 
 .col.col-50[
-# &nbsp;
+.c-list.c-list_narrow[
++ .text-background-translucent-yellow[**A**: `a == 1; b == 1;`]
++ **B**: `a == 1; b == 2;`
++ **C**: `a == 2; b == 2;`
+] 
 ]
 ]
 
@@ -839,9 +858,9 @@ b; // 1
 
 ---
 
-class: s s-top s_padding-small
+class: s s-top
 
-## I.4 Was passiert, wenn man ein Komma vergisst?
+## I.4 Und wenn man ein Komma vergisst?
 
 .row[
 .col.col-50.u-padding-left-150[
@@ -871,7 +890,39 @@ b; // ???
 
 ---
 
-class: s s-top s_padding-small
+class: s s-top
+
+## I.4 Und wenn man ein Komma vergisst?
+
+.row[
+.col.col-50.u-padding-left-150[
+.text-code_medium[
+```javascript
+var a = 1,
+    b = 1;
+
+(function() {
+* var a = 2
+      b = 2;
+})();
+
+a; // ???
+b; // ???
+```
+]
+]
+.col.col-50[
+.c-list.c-list_narrow[
++ **A**: `a == 1; b == 1;`
++ .text-background-translucent-yellow[**B**: `a == 1; b == 2;`]
++ **C**: `a == 2; b == 2;`
+]
+]
+]
+
+---
+
+class: s s-top
 
 ## I.4 Antwort: B
 
@@ -942,6 +993,42 @@ class: s s-top
 
 ???
 + Letztes generelles Problem
+
+---
+
+class: s s-top
+
+## I.5 `==` (lose Gleichheit)
+
+.row[
+.col.col-33[
+```javascript
+'0' == 0;
+// ???
+```
+]
+
+.col.col-33[
+```javascript
+0  == '';
+// ???
+```
+]
+
+.col.col-33[
+```javascript
+'0' == '';
+// ???
+```
+]
+]
+
+.c-list.u-width-50[
+<br>
++ **A**: `true, true, true`
++ .text-background-translucent-yellow[**B**: `true, true, false`]
++ **C**: `false, false, false`
+]
 
 ---
 
@@ -1195,11 +1282,15 @@ var foo = "Ich bin global";
 (function() {
   console.log(foo);
   foo = "Ich verändere das globale foo!?";
+  // ...
 * var foo = "Ich bin lokal";
 })();
 
 foo; // ???
 ```
+
+???
++ Nun zum sog. **Hoisting**, was passiert, wenn wir am Ende der Funktion eine lokale Variable `foo` initialisieren?
 
 ---
 
@@ -1212,11 +1303,29 @@ var foo = "Ich bin global";
 (function() {
   console.log(foo); // undefined
   foo = "Ich verändere das globale foo!?";
-  var foo = "Ich bin lokal";
+  // ...
+* var foo = "Ich bin lokal";
 })();
 
-foo; // ???
+*foo; // "Ich bin global"
 ```
+
+???
++ Hoisting (wie "Flagge hissen"): **Variablen*deklaration* (aber nicht -initialisierung) greift schon am Anfang der Funktion**.
++ Woher weiß ich beim ersten `foo = `, dass unten noch `var` kommt? Was, wenn das jemand später hinzufügt?
+
+---
+
+class: s s-top s_background-bottom s_background-40
+background-image: url(images/flag.png)
+
+# Hoisting
+
+.c-list.u-width-70[
++ gefährlich
++ manchen Texte erwecken den Eindruck als sei es ein Feature, das es zu beherrschen gelte
++ ES6 Gegenmittel: `let` statt `var` benutzen
+]
 
 ---
 
