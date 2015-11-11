@@ -48,6 +48,7 @@ background-image: url(images/railslove-heart.svg)
 ]
 
 ???
++ ich mag JavaScript
 + werden heute **Finger in ein paar Wunden legen** und uns JS's **Schwächen** anschauen
 + Sprache nicht madig machen
 + trotzdem eine meiner liebsten Sprachen, da man so schöne Sachen damit machen kann
@@ -304,7 +305,7 @@ background-image: url(images/p/dogbert.jpg)
 ]
 
 ???
-**TC39**: Gremium mit Vertretern aus der Industrie, Mozilla, Freiwillige
+**TC39** (Technical Committee): Gremium mit Vertretern aus der Industrie, Mozilla, Freiwillige
 
 für uns **relevante Versionen**
 + ES5.1: in Browsern gerade eingebaut
@@ -486,8 +487,8 @@ Ich habe einen **Prototypen** gebaut, der zu früh zum ausgelieferten Produkt ge
 ]
 
 ???
-Quelle:
-JavaScript Jabber Podcast &amp; Ian Davis Vortrag
++ **Brendan Eich selbst sagt:**
++ Quelle: JavaScript Jabber Podcast &amp; Ian Davis Vortrag
 
 ---
 
@@ -515,27 +516,9 @@ background-image: url(images/javascript-logo.jpg)
 
 ---
 
-class: s_background-cover
-background-image: url(images/office-space-lumbergh.jpg)
-
-.u-background-green.text-white.u-width-50.u-padding-20.u-no-margin-vertical.u-border-radius-10[
-JavaScript ist trotzdem **super**!
-]
-
-???
-+ will nicht Freude an JS nehmen oder Euch die Sprache madig machen - ganz im Gegenteil. Trotzdem wichtig, dass man sich anschaut welche Probleme ein Sprachupdate löst - viel zu lernen.
-+ lieber als Ruby, obwohl das die sauberere Sprache ist
-+ ich schreib gerne JavaScript weil im Browser & allen zeigbar und gut geeignet für funktionale Programmierung / sich hier gerade sehr viel tut mit guten Ideen wie man Frontends bauen kann.
-+ normalerweise werden bei Vorträgen zu neuen Sprachversionen nur die Vorteile hervorgehoben und keiner fragt, woran es denn liegt, dass all diese Verbesserungen notwendig waren
-+ ES6 ist nicht der Weisheit letzter Schluss, ES7 ist schon in der Mache
-+ zeigen warum überhaupt ES6 / Motivation dahinter und Beispiel zeigen wie Programmiersprachen sich über die Zeit entwickeln.
-+ zeig euch am Ende noch richtige Handschuhe
-
----
-
 class: s s-top
 
-## Evolutionäre Fitness bedroht
+## Sprache im Wandel
 .c-list.u-width-70[
 + JavaScript war nicht dafür gedacht **komplexe Webanwendungen** zu schreiben
 + wird heute für _alles_ benutzt
@@ -550,22 +533,25 @@ class: s s-center
 ## Ziele von ECMAScript 6
 
 .c-list.c-list_narrow.u-width-70[
-+ **Syntaxerweiterungen** und neue **Features**, um das Entwickeln von **komplexen Anwendungen** und Bibliotheken zu erleichtern
 + JavaScript besser an heutige Bedürfnisse anpassen
++ **Syntaxerweiterungen** und neue **Features**, um das Entwickeln von **komplexen Anwendungen** und Bibliotheken zu erleichtern
 + besser **verstehbarer** und wartbarer Code
 + **Weiterentwicklung** des Standards dringend nötig, um Einheit zu schaffen
-  - Entwickler wollen Features, die sie aus anderen Sprachen gewohnt sind in der Sprache eingebaut haben
-+ dauerte **6 Jahre**, da man Fehler vermeiden wollte, die man dann wieder nicht ausbügeln kann
+  - Entwickler wollen Features, die sie aus anderen Sprachen gewohnt sind in JS eingebaut haben
++ Verabschiedung dauerte **6 Jahre**, da man Fehler vermeiden wollte, die man dann wieder nicht ausbügeln kann
 ]
+
+???
++ um diesen Problemen zu entgegnen tritt jetzt ES6 auf den Plan
 
 ---
 
 class: s s-center
 
-## ECMAScript 6
+## Stand von ECMAScript 6 heute
 
 .c-list.u-width-70[
-+ im Juni 2015 standardisiert
++ im Juni 2015 verabschiedet
 + **teilweise Unterstützung** in Browsern
 + kann Code nicht ohne **Transpiler** in älteren Browsern nutzen
 + voll **abwärtskompatibel**
@@ -595,6 +581,9 @@ background-image: url(images/p/uk-tap-fixed.jpg)
 # Probleme von JS/ECMAScript 5
 ]
 
+???
++ kommen wir zu den konkreten Problemen von JS, die ich **exemplarisch aufzeigen** werde.
+
 ---
 
 class: s s-center s_background-blue
@@ -602,6 +591,10 @@ class: s s-center s_background-blue
 ## I. Fünf generelle Probleme von JavaScript<br><br>.text-light-grey.text-medium-small.text-center.u-block[&ndash; Zwischenfazit &ndash;]<br> II. Probleme, die ES6 lindert
 
 + beides nur in begrenzter Auswahl
++ gezeigter Code ist ES5, nicht 6
+
+???
++ generelle Probleme: werden **nicht durch ES6 vollkommen beseitigt** / ausgeschlossen, dass man in sie gerät
 
 ---
 
@@ -624,10 +617,26 @@ Math.max()
 
 ---
 
+class: s s-top s_padding-small
+
+## I.1 Quiz: `Math.max`
+```javascript
+Math.max()
+// ???
+```
+
++ **A**: `Infinity`
++ **B**: `0`
++ .text-background-translucent-yellow[**C**: `-Infinity`]
++ **D**: `NaN`
++ **E**: `9007199254740992`
+
+---
+
 class: s s-top s_padding-small s_background-bottom s_background-40 s_padding-small
 background-image: url(images/office-space-lumbergh-hmmm.jpg)
 
-## I.1 Antwort: C
+## I.1 Quiz: `Math.max` 
 
 ```javascript
 Math.max();
@@ -663,12 +672,35 @@ myArray;          // ?????????
 
 class: s s-top s_padding-small
 
+## I.2 Quiz: Array-Indizes
+
+```javascript
+var myArray = [1, 2, 3];
+myArray[-1] = 'a';
+myArray;          // ?????????
+```
+
+.c-list[
+<br>
++ .text-background-translucent-yellow[**A**: `[1, 2, 3]`]
++ **B**: `['a', 1, 2, 3]`
++ **C**: `[1, 2, 'a']`
+]
+
+???
++ Ruby: `myArray[-1]` für letztes Element des Arrays
+
+
+---
+
+class: s s-top s_padding-small
+
 ## I.2 Antwort: A
 
 ```javascript
 var myArray = [1, 2, 3];
 myArray[-1] = 'a';
-myArray;          // [1, 2, 3]
+*myArray;          // [1, 2, 3]
 myArray.length;   // 3
 myArray['-1'];    // 'a'
 ```
@@ -819,7 +851,7 @@ var a = 1,
     b = 1;
 
 (function() {
-  var a = 2 // (!!!)
+* var a = 2
       b = 2;
 })();
 
@@ -851,7 +883,7 @@ var a = 1,
     b = 1;
 
 (function() {
-  var a = 2 // (!!!)
+* var a = 2
       b = 2;
 })();
 
@@ -863,14 +895,14 @@ b; // 2
 
 .col.col-50[
 .text-smaller.u-line-height-37[
-Der Zeilenumbruch **setzt implizit ein Semikolon**, wodurch<br> `b = ...` keine Variablendeklaration mehr ist, sondern zur Attributszuweisung auf dem globalen `window`-Objekt wird.
+Der Zeilenumbruch **setzt implizit ein Semikolon**, wodurch<br> `b = ...` keine Variableninitialisierung mehr ist, sondern zur Attributszuweisung auf dem globalen `window`-Objekt wird.
 ]
 ]
 ]
 
 ???
 ## (REF)
-+ Variablendeklarationen im globalen Kontext setzen einfach Attribute auf `window`.]
++ Variableninitialisierungen im globalen Kontext setzen einfach Attribute auf `window`
 
 ---
 
@@ -1111,6 +1143,80 @@ background-image: url(images/p/leather-gloves.jpg)
 ???
 + Leder-, nicht Kettenhandschuhe
 + durchkommen der Zacken lässt sich nicht vermeiden (Abwärtskompatibilität), aber man kann jetzt besser an den weniger spitzen Stellen seine Finger ablegen, um das Schwert zu halten
+
+---
+
+class: s s-top s-left
+## <u>Implizite globale Variablen</u> &amp; Hoisting
+
+```javascript
+var foo = "Ich bin global";
+
+(function() {
+  var foo = "Ich bin lokal";
+})();
+
+foo; // "Ich bin global"
+```
+
+???
++ Zum zweiten Teil der Problemschau, also Problemen die ES6 direkt adressiert
++ Codebeispiele sind immer noch ES5, nicht 6
+
+---
+
+class: s s-top s-left
+## <u>Implizite globale Variablen</u> &amp; Hoisting
+
+```javascript
+var foo = "Ich bin global";
+
+(function() {
+* foo = "Ich bin lokal";
+})();
+
+*foo; // "Ich bin lokal"
+```
+
+???
++ wenn ich jetzt `var` in der Funktion vergesse, verändere ich auf einmal das globale `foo`. 
++ wenn es foo global noch nicht gäbe würde JS mir mal eben eine machen
++ JS macht hier **zu viele Annahmen** darüber was ich machen will
++ &rArr; **Überraschungen** selbst für erfahrene Programmierer
+
+---
+
+class: s s-top s-left
+## Implizite globale Variablen &amp; <u>Hoisting</u>
+
+```javascript
+var foo = "Ich bin global";
+
+(function() {
+  console.log(foo);
+  foo = "Ich verändere das globale foo!?";
+* var foo = "Ich bin lokal";
+})();
+
+foo; // ???
+```
+
+---
+
+class: s s-top s-left
+## Implizite globale Variablen &amp; <u>Hoisting</u>
+
+```javascript
+var foo = "Ich bin global";
+
+(function() {
+  console.log(foo); // undefined
+  foo = "Ich verändere das globale foo!?";
+  var foo = "Ich bin lokal";
+})();
+
+foo; // ???
+```
 
 ---
 
