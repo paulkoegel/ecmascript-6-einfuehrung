@@ -58,7 +58,7 @@ background-image: url(images/p/dilbert-lunch-cut.png)
 2. **Hintergrund**
   + Geschichte von JavaScript
   + Lektionen für Sprachdesign und -auswahl
-3. Fazit und Ausblick
+3. **Fazit und Ausblick**
   + JS als Assembler des Webs
 ]
 ]
@@ -157,10 +157,11 @@ background-image: url(images/p/uk-tap-fixed.jpg)
 
 ---
 
-class: s s-center
+class: s s-center s_background-blue
 
-## I. Fünf generelle Probleme von JavaScript
-## II. Probleme, die ES6 lindert
+## I. Fünf generelle Probleme von JavaScript<br><br> II. Probleme, die ES6 lindert
+
++ beides nur in begrenzter Auswahl
 
 ---
 
@@ -481,7 +482,9 @@ class: s s-top s_padding-none
 ```
 
 .text-small[
-<br>`'0'` wird zu `0` konvertiert.<br>
+<br>
+_`'0'` wird zu `0` konvertiert._
+<br>
 ]
 ]
 
@@ -491,9 +494,9 @@ class: s s-top s_padding-none
 // true
 ```
 
-.text-small[
+.text-smaller[
 <br>
-`''` wird zu `0` konvertiert.
+_`''` wird zu `0` konvertiert._
 <br><br>
 ]
 ]
@@ -505,21 +508,12 @@ class: s s-top s_padding-none
 // false
 ```
 
-.text-small[
-Keine Konvertierung, sind nicht die gleichen Strings.
-```javascript
-'0' === ''
-// false
-```
+.text-smaller[
+<br>
+_Keine Konvertierung, sind beides schon Strings und einfach nicht gleich._
 ]
 ]
 ]
-
-.text-mini[
-<br><br>
-Spec: [http://www.ecma-international.org/ecma-262/5.1/#sec-11.9.3](http://www.ecma-international.org/ecma-262/5.1/#sec-11.9.3)
-]
-
 
 ???
 + Problem von JavaScript, das ES6 nicht löst
@@ -528,12 +522,21 @@ Spec: [http://www.ecma-international.org/ecma-262/5.1/#sec-11.9.3](http://www.ec
 + **Fazit**: viel nachschauen, um zu verstehen was genau passiert.
 
 ### (REF)
+mittlere Spalte:
 ```javascript
 parseInt('');
 // NaN
 Number('');
 // 0
 ```
+
+rechte Spalte:
+```javascript
+'0' === ''
+// false
+```
+
+Spec: [http://www.ecma-international.org/ecma-262/5.1/#sec-11.9.3](http://www.ecma-international.org/ecma-262/5.1/#sec-11.9.3)
 
 ---
 
@@ -620,7 +623,21 @@ class: s s-top
 
 class: s s-center
 
-## Fazit zu generellen Problemen
+## Fazit zu generellen Problemen ..
+
+.c-list.u-width-70[
++ überraschende Vorsteinstellungen (`Math.max`)
++ Arrays sind numerisch _und_ assoziativ indiziert
++ implizite Semikolons
++ JS hat Funktionsscope
++ `==`, einer der häufigsten Operatoren aus anderen Sprachen, ist gefährlich
+]
+
+---
+
+class: s s-center
+
+## .. Fazit
 
 .c-list.c-list_narrow.u-width-70[
 + **nicht durch ES6 behebbar** (Abwärtskompatibilität)
@@ -657,8 +674,9 @@ background-image: url(images/p/leather-gloves.jpg)
 ## ECMAScript 6 =<br> Lederhandschuhe für JavaScript
 ]
 .u-width-70.text-small[
-+ .text-smaller[man kann sich immer noch verletzen und muss die Handschuhe nicht anziehen]
-+ .text-smaller[_wenn_ man sie anzieht (d.h. neue ES6-Funktionen nutzt), wird JavaScript um einiges besser]
++ .text-smaller[man kann sich immer noch verletzen]
++ .text-smaller[man muss die Handschuhe nicht anziehen]
++ .text-smaller[_wenn_ man sie anzieht (d.h. neue ES6-Funktionen nutzt), wird das Arbeiten mit JavaScript um einiges angenehmer]
 ]
 
 ???
@@ -668,11 +686,18 @@ background-image: url(images/p/leather-gloves.jpg)
 
 class: s s-center
 
-## Probleme, die ES6 addressiert
+## Probleme, die ES6 adressiert
 + `this`
 + block scope (hoisting)
   -> Ian Davis Präsentation
 + Promises, Klassen, Module vereinheitlicht (davor Fragmentierung der Tools)
+
+---
+
+KOMMT NOCH: ES6 Features :)
+arrow syntax,
+destructuring,
+...
 
 ---
 
@@ -732,7 +757,7 @@ class: s s-center s_padding-none s_background-cover
 background-image: url(images/p/death-star-briefing.jpg)
 
 .s--headline-overlay[
-# 1. Hintergrund
+# 2. Hintergrund
 ]
 
 ---
@@ -968,7 +993,7 @@ TIOBE Index vgl.: [http://www.heise.de/developer/meldung/Programmiersprachen-Top
 
 ---
 
-class: s s-top s_padding-none s_background-bottom s_background-50
+class: s s-top s_padding-small s_background-bottom s_background-50
 background-image: url(images/full-stack-homer.jpg)
 
 .u-no-margin-bottom[
@@ -1283,7 +1308,50 @@ https://github.com/jashkenas/coffeescript/wiki/list-of-languages-that-compile-to
 
 ---
 
-Bildquellen:
+class: s s-top u-no-padding-horizontal
+
+# Bonus: Spannende Entwicklungen
+
+.row[
+
+.col.col-33[
+.text-smaller[**JS Entwicklungen**]
+<br><br>
+.c-list.c-list_narrow[
++ .text-smallest[ReactJS]
++ .text-smallest[Immutable.js]
++ .text-smallest[Flow]
++ .text-smallest[GraphQL / Falcor]
++ .text-smallest[Redux]
++ .text-smallest[Transit]
++ .text-smallest[Cycle.js]
+]]
+
+.col.col-33[
+.text-smaller[**Jenseits JS**]
+<br><br>
+.c-list.c-list_narrow[
++ .text-smallest[ClojureScript]
++ .text-smallest[Om]
++ .text-smallest[DataScript]
++ .text-smallest[Elm]
+]]
+
+.col.col-33[
+.text-smaller[**Spannende Themen**]
+<br><br>
+.c-list.c-list_narrow[
++ .text-smallest[Funktionale Programmierung]
++ .text-smallest[Unveränderliche Datenstrukturen (immutable data structures)]
++ .text-smallest[Functional Reactive Programming]
+]]
+]
+
+---
+
+class: s s-center
+
+# Bildquellen
 + Dilbert
 + Office Space
 + Star Wars
