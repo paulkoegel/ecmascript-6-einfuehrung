@@ -105,9 +105,7 @@ class: s s-top s_background-bottom s_background-30
 wie ham-hamster, car-carpet, Hahn-halver Hahn
 
 ???
-+ das Wichtigste am Anfang
-+ haben nichts miteinander zu tun
-+ werden gleichs sehen wie es zu dem unglücklichen Namen kommt
++ eins vorneweg: haben nichts miteinander zu tun
 
 ---
 
@@ -142,10 +140,9 @@ Quelle: Darcy Padilla
 ]
 
 ???
-+ 1995 von Brendan Eich erschaffen
-+ Netscape: damals einer der populärsten Browser, später open source und daraus entstand die Mozilla Foundation die heute Firefox herausgibt
-+ missverständlicher Name: Java war sehr hip, Kooperation zwischen Netscape und **Sun**, der Firma hinter Java (später von Oracle gekauft)
-+ Mocha, Marketing: LiveScript &rArr; JavaScript
++ 1995 von **Brendan Eich** erschaffen, der arbeitete damals bei **Netscape**, die eine Kooperation mit Sun hatten.
++ Mocha &rArr; Marketing: LiveScript &rArr; Marketing: JavaScript
++ **Java** war damals sehr **hip**, Syntax an Java angelehnt, aber Struktur der Sprache ganz anders (**keine Klassen!**)
 
 ---
 
@@ -155,11 +152,10 @@ background-image: url(images/netscape-logo.svg)
 ## Netscapes Ziel
 
 .c-list[
++ als einfachere Ergänzung zu Java gedacht
 + leicht zugänglich für Amateure
   - interpretiert & untypisiert
-  - Vorbild: Visual Basic
   - in HTML einbettbar
-+ als einfachere Ergänzung zu Java gedacht
 ]
 
 ???
@@ -168,6 +164,11 @@ background-image: url(images/netscape-logo.svg)
 Quellen:
 + JavaScript Jabber withb Brendan Eich
 + http://ghost.jollygoodthemes.com/toffee/the-story-of-javascript
+
+???
+.grey[
++ Vorbild: Visual Basic
+]
 
 ---
 
@@ -356,13 +357,12 @@ background-image: url(images/full-stack-homer.jpg)
 + Wirtschaft mag _eine_ Sprache für alles
 
 ???
-full stack: Frontend, Backend (nodeJS), Datenbank (Mongo, CouchDB)
++ full stack: Frontend, Backend (nodeJS), Datenbank (Mongo, CouchDB)
++ Roboter, Hardware, etc.
 
-##(REF)
-nicht ganz konkurrenzlos, wg. compile-to-JS Sprachen
-
-(BONUS)
-[The World's Most Misunderstood Programming Language Has Become the World's Most Popular Programming Language](http://javascript.crockford.com/popular.html)
+.grey[
++ nicht ganz konkurrenzlos, wg. compile-to-JS Sprachen]
++ [The World's Most Misunderstood Programming Language Has Become the World's Most Popular Programming Language](http://javascript.crockford.com/popular.html)
 
 ---
 
@@ -666,7 +666,9 @@ myArray;          // ?????????
 ]
 
 ???
+.grey[
 + Ruby: `myArray[-1]` für letztes Element des Arrays
+]
 
 ---
 
@@ -708,9 +710,10 @@ myArray['-1'];    // 'a'
 ]
 
 ???
-# (REF)
+.grey[
 + außerdem: `myArray[-1]; // 'a'` und `myArray['0']; // 1`
 + [JavaScript Associative Arrays Considered Harmful](http://andrewdupont.net/2006/05/18/javascript-associative-arrays-considered-harmful)
+]
 
 ---
 
@@ -779,8 +782,9 @@ myArray[foo++] = 'x';
 + `undefined++` gibt `NaN`
 + `myArray[NaN]` schreibt assoziativ indiziertes Element, kein Fehler wird geworfen
 
-### (REF)
+.grey[
 + Quelle: [Type safety and RNGs](https://medium.com/@octskyward/type-safety-and-rngs-40e3ec71ab3a)
+]
 
 ---
 
@@ -952,8 +956,9 @@ Der Zeilenumbruch **setzt implizit ein Semikolon**, wodurch<br> `b = ...` keine 
 ]
 
 ???
-## (REF)
+.grey[
 + Variableninitialisierungen im globalen Kontext setzen einfach Attribute auf `window`
+]
 
 ---
 
@@ -1083,7 +1088,7 @@ _Keine Konvertierung, sind beides schon Strings und einfach nicht gleich._
 + lose Gleichheit: nach Typenkonvertierung
 + **Fazit**: viel nachschauen, um zu verstehen was genau passiert.
 
-### (REF)
+.grey[
 mittlere Spalte:
 ```javascript
 parseInt('');
@@ -1099,6 +1104,7 @@ rechte Spalte:
 ```
 
 Spec: [http://www.ecma-international.org/ecma-262/5.1/#sec-11.9.3](http://www.ecma-international.org/ecma-262/5.1/#sec-11.9.3)
+]
 
 ---
 

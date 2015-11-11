@@ -124,3 +124,7 @@ iframe {
 .remark-notes-area .remark-code {
   font-size: 2rem;
 }
+
+.remark-notes-area .grey {
+  color: #ccc;
+}
