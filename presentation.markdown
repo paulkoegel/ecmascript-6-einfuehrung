@@ -69,21 +69,12 @@ background-image: url(images/p/dilbert-lunch-cut.png)
 
 .col.col-50.c-inhalt--ol-with-counter[
 2. **ECMAScript 6 Praxis**
-  + Probleme von JS/ES5
   + Neue Sprachfeatures
-  + Wie benutzen?
+  + Wie heute schon benutzen?
 3. **Fazit &amp; Ausblick**
-  + Sprachdesign und -auswahl
+  + JS als Assembler des Webs
 ]
 ]
-
-???
-+ beginnen mit Erklärung der Namen - warum heißt das ausgerechnet JavaScript und warum heißen Versionen davon ECMAScript?
-+ dann schauen wir uns JavaScripts Geschichte an: Entstehung und Aufstieg
-+ Reisewarnung für Gefahrenzone
-+ schließlich zeig ich euch Probleme, die großer Teil der Motivation für ES6 waren
-
-+ im **2. Teil**
 
 ---
 
@@ -192,7 +183,7 @@ class: s s-top s_padding-small
       <td>1.0 (IE 3.0)</td>
       <td>--</td>
     </tr>
-    <tr>
+    <tr class='text-background-translucent-yellow'>
       <td>1997/98</td>
       <td>1.3</td>
       <td>3.0</td>
@@ -226,16 +217,16 @@ class: s s-top s_padding-small
       <td>2011</td>
       <td>"</td>
       <td>"</td>
-      <td>ES5</td>
+      <td>ES5.1</td>
     </tr>
-    <tr>
+    <tr class='text-background-translucent-yellow'>
       <td>2015</td>
       <td>"</td>
       <td>"</td>
       <td>ES6</td>
     </tr>
     <tr>
-      <td>2015</td>
+      <td>2016 (?)</td>
       <td>?</td>
       <td>?</td>
       <td>ES7</td>
@@ -244,20 +235,21 @@ class: s s-top s_padding-small
 </table>
 
 ???
-+ rechte Spalte zeigt ECMAScript Versionen
++ **Thema** Standardisierung kam recht schnell auf, **browser wars** (Vorwürfe an Netscape, starke Unterschiede zwischen Implementierungen)
++ rechte Spalte zeigt ES Versionen
 + ES = Standard für JavaScript
-+ heißt anders, da dafür die Lizenz von Sun nicht genutzt werden durfte
++ JS = Netscape/Mozilla-Implementierung
++ JScript = Microsoft
 + **E**uropean **C**omputer **M**anufacturers **A**ssociation, hat auch die CD-ROM standardisiert
 + durften den namen JavaScript nicht benutzen für den Standard
 + erste Version: Juni 1997
 
-JScript: Microsoft's JavaScript Dialekt, daneben gibt's noch 
-Browser Wars: Vorwürfe, dass Netscape seine Erfinderrolle zum eigenen Vorteil nutzt &rArr; Standardisierung war wichtig
-
-Quellen:  
-[https://en.wikipedia.org/wiki/JavaScript#Version_history](https://en.wikipedia.org/wiki/JavaScript#Version_history)  
-[https://en.wikipedia.org/wiki/ECMAScript#Version_correspondence](https://en.wikipedia.org/wiki/ECMAScript#Version_correspondence)  
-[https://en.wikipedia.org/wiki/ECMAScript#Versions](https://en.wikipedia.org/wiki/ECMAScript#Versions)
+.grey[
++ Quellen:  
+  -[https://en.wikipedia.org/wiki/JavaScript#Version_history](https://en.wikipedia.org/wiki/JavaScript#Version_history)  
+  - [https://en.wikipedia.org/wiki/ECMAScript#Version_correspondence](https://en.wikipedia.org/wiki/ECMAScript#Version_correspondence)  
+  - [https://en.wikipedia.org/wiki/ECMAScript#Versions](https://en.wikipedia.org/wiki/ECMAScript#Versions)
+]
 
 ---
 
@@ -272,11 +264,12 @@ background-image: url(images/jagermonkey.jpg)
 + [... mind. 10 weitere](https://en.wikipedia.org/wiki/JavaScript_engine)
 
 ???
-+ Implementierungen innerhalb eines Herstellers / Interpreter / VMs
++ daneben gibt es noch **Implementierungen**
 + [JS Engines](https://en.wikipedia.org/wiki/JavaScript_engine) sind VMs in denen JS ausgeführt wird.
 
-(BONUS)
-+ [https://en.wikipedia.org/wiki/JavaScript_engine#The_JavaScript_engine_race:_2008_and_2009](https://en.wikipedia.org/wiki/JavaScript_engine#The_JavaScript_engine_race:_2008_and_2009])
+.grey[
++ [https://en.wikipedia.org/wiki/JavaScript_engine#The_JavaScript_engine_race:_2008_and_2009](https://en.wikipedia.org/wiki/JavaScript_engine#The_JavaScript_engine_race:_2008_and_2009)
+]
 
 ---
 
@@ -300,25 +293,29 @@ background-image: url(images/p/dogbert.jpg)
 .col.col-33[
 ### Versionen
 + ES 5.1
-+ .text-green[**ES 6**]<sup>th</sup> Ed. / **ES 2015** / Harmony
++ .text-green[**ES 6**]<sup>th</sup> Ed. / **ES 2015**
 + ES7
+
++ "Harmony": alles nach ES5
 ]
 ]
 
 ???
-**TC39** (Technical Committee): Gremium mit Vertretern aus der Industrie, Mozilla, Freiwillige
++ **TC39** (Technical Committee): Gremium mit Vertretern aus der Browserindustrie + geladene Experten
 
-für uns **relevante Versionen**
-+ ES5.1: in Browsern gerade eingebaut
-+ ES6: seit Juni 2015 standardisiert, wird gerade eingebaut
-+ ES7: kommt bald
++ für uns **relevante Versionen**
+  - ES5.1: in Browsern gerade eingebaut
+  - ES6: seit Juni 2015 standardisiert, wird gerade eingebaut
+  - ES7: kommt bald
 
 ### Standard
 + Version seit 2009, 5.1 (in heutigen Browsern) seit 2011
 + ES6 seit Juni 2015
 
+.grey[
 + [Übersicht der ECMAScript Versionen](https://en.wikipedia.org/wiki/ECMAScript#Versions)
 + [JavaScript - ECMAScript Versionsensprechungen](https://en.wikipedia.org/wiki/ECMAScript#Version_correspondence)
+]
 
 ---
 
@@ -326,22 +323,24 @@ class: s s-top s_padding-small
 
 ## JavaScripts Aufstieg
 
+.u-width-70.text-smaller[
+Wandel von Sprache für kleine Spielereien zur Sprache für _Rich Internet Applications_.<br><br>
+]
+
 .c-list.c-list_narrow[
-+ **Ende der 90er**:
-  - kleine Skripte
-  - Java Applets
-+ **1998**: Mozilla, Netscape an AOL verkauft
-+ **2005**: Ajax
++ **1995**: Erfunden
++ **1998**: Mozilla
++ **2005**: Web 2.0 / Ajax
 + **2006**: jQuery
 + **2007**: iPhone &rArr; Flash auf dem Rückzug
-+ **2008**: Google Chrome &amp; v8
++ **2008**: v8 &rArr; viel bessere JS Performanz
 + **2009**: Node.js, ES5
 + **2010**: Backbone.js
 + **2013**: React
 ]
 
 ???
-TIOBE Index vgl.: [http://www.heise.de/developer/meldung/Programmiersprachen-Top-10-Objective-C-raus-Ruby-wieder-rein-2837323.html](http://www.heise.de/developer/meldung/Programmiersprachen-Top-10-Objective-C-raus-Ruby-wieder-rein-2837323.html)
++ Mozilla: wichtig für Standardisierung
 
 ---
 
@@ -361,13 +360,19 @@ background-image: url(images/full-stack-homer.jpg)
 + Roboter, Hardware, etc.
 
 .grey[
-+ nicht ganz konkurrenzlos, wg. compile-to-JS Sprachen]
++ TIOBE Index vgl.: [http://www.heise.de/developer/meldung/Programmiersprachen-Top-10-Objective-C-raus-Ruby-wieder-rein-2837323.html](http://www.heise.de/developer/meldung/Programmiersprachen-Top-10-Objective-C-raus-Ruby-wieder-rein-2837323.html)
++ nicht ganz konkurrenzlos, wg. compile-to-JS Sprachen
 + [The World's Most Misunderstood Programming Language Has Become the World's Most Popular Programming Language](http://javascript.crockford.com/popular.html)
+]
 
 ---
 
-class: s s-center s_background-cover
+class: s s-top s_background-cover s_padding-none
 background-image: url(images/p/cat-dog-train.jpg)
+
+.s--headline-overlay[
+# Happy choo choo!?? (・_・ヾ
+]
 
 ???
 + also alles super, wir gehen die neuen Features von ES6 durch und uns haut's alle aus den Socken!?
@@ -435,8 +440,8 @@ class: s s-top s_background-red
 
 ???
 + stellt sich leider als Fluch der Sprach heraus.
-+ zum Vergleich: Clojure wurde über ein Jahr lang entwickelt, viele andere Sprachen machen Versionssprünge im Zuge derer Features abgeschafft werden
-+ das geht im Web leider nicht - zu viele Seiten verlassen sich darauf
++ zum Vergleich: Clojure wurde über ein Jahr lang entwickelt, viele andere Sprachen machen Versionssprünge im Zuge derer **Features abgeschafft** werden
++ das **geht im Web leider nicht** - zu viele Seiten verlassen sich darauf
 
 ---
 
@@ -448,10 +453,8 @@ background-image: url(images/javascript-good-bad-parts.jpg)
 ]
 
 ???
-+ klassische Metapher für JavaScript
-+ nur kleiner Teil der Sprache ist brauchbar
-+ im linken Buch steht alles über JavaScript
-+ das rechte Buch bekommt man, wenn man die ganzen Sachen, die an JavaScript schlecht sind, aus dem dicken Buch herausreißt.
++ klassische Metapher für JavaScript: links **"Definitive Guide"**, rechts **"The good Parts"**
++ nur **Teil der Sprache** ist brauchbar
 
 ---
 
@@ -469,6 +472,9 @@ background-image: url(images/p/death-star-2-weakness.jpg)
 
 class: s_background-cover
 background-image: url(images/death-star-2-boom.gif)
+
+???
++ kann zu Problemen führen, wie wir gleich sehen werden
 
 ---
 
@@ -543,6 +549,7 @@ class: s s-center
 
 ???
 + um diesen Problemen zu entgegnen tritt jetzt ES6 auf den Plan
++ **eingebaut**: nicht per Library Modulsystem laden, weil das dann in jedem Projekt anders und miteinander inkompatibel ist
 
 ---
 
@@ -551,12 +558,11 @@ class: s s-center
 ## Stand von ECMAScript 6 heute
 
 .c-list.u-width-70[
-+ im Juni 2015 verabschiedet
++ wurde im Juni 2015 verabschiedet
 + **teilweise Unterstützung** in Browsern
 + kann Code nicht ohne **Transpiler** in älteren Browsern nutzen
 + voll **abwärtskompatibel**
   - fügt nur Features hinzu
-+ großer **Meilenstein** für JS, ES5 ist von 2009
 ]
 
 ---
@@ -564,13 +570,11 @@ class: s s-center
 class: s s-center
 background-image: url(images/es6-compatibility.png)
 
-<!--
-<iframe src="https://kangax.github.io/compat-table/es6/"></iframe>
--->
-
 ???
-+ wie man an den vielen roten Kästchen sieht gibt es noch einiges zu tun
++ wie man an den vielen roten Kästchen sieht gibt es **noch einiges zu tun**
++ .grey[
 [https://kangax.github.io/compat-table/es6](https://kangax.github.io/compat-table/es6)
+]
 
 ---
 
@@ -582,19 +586,20 @@ background-image: url(images/p/uk-tap-fixed.jpg)
 ]
 
 ???
-+ kommen wir zu den konkreten Problemen von JS, die ich **exemplarisch aufzeigen** werde.
++ kommen wir zu den **konkreten Problemen** von JS
 
 ---
 
 class: s s-center s_background-blue
 
-## I. Fünf generelle Probleme von JavaScript<br><br>.text-light-grey.text-medium-small.text-center.u-block[&ndash; Zwischenfazit &ndash;]<br> II. Probleme, die ES6 lindert
+## I. Fünf generelle Probleme von JavaScript<br><br>.text-light-grey.text-medium-small.text-center.u-block[&ndash; Zwischenfazit &ndash;]<br> II. Ein Problem, das ES6 lindern kann
 
-+ beides nur in begrenzter Auswahl
-+ gezeigter Code ist ES5, nicht 6
++ beides anhand von Beispielen
++ gezeigter Code ist ES5, nicht ES6
 
 ???
 + generelle Probleme: werden **nicht durch ES6 vollkommen beseitigt** / ausgeschlossen, dass man in sie gerät
++ nur _ein_ Beispielproblem für ES6: im ES6 Praxisteil lösen wir noch mehrere kleine Probleme
 
 ---
 
@@ -613,7 +618,7 @@ Math.max()
 + **E**: `9007199254740992`
 
 ???
-+ bei diesen Quizzes kann man sich nicht blamieren - JS ist ziemlich eigenartig
++ bei diesen Quizzes kann man sich **nicht blamieren** - JS ist ziemlich eigenartig
 
 ---
 
@@ -666,9 +671,8 @@ myArray;          // ?????????
 ]
 
 ???
-.grey[
-+ Ruby: `myArray[-1]` für letztes Element des Arrays
-]
++ .text-red[**überspringen???**]
++ .grey[Ruby: `myArray[-1]` für letztes Element des Arrays]
 
 ---
 
@@ -735,7 +739,7 @@ myArray[foo++] = 'x';
 ]
 
 ???
-+ .text-red[**Antwortfolie weglassen, um Zeit zu sparen?**]
++ .text-red[**überspringen???**]
 
 ---
 
@@ -756,6 +760,8 @@ myArray[foo++] = 'x';
 + **C**: Wirft Fehler bei der letzten Zuweisung.
 ]
 
+???
++ .text-red[**nächste Erklärungsfolie weglassen, um Zeit zu sparen?**]
 ---
 
 class: s s-top s-left
@@ -820,6 +826,7 @@ b; // ???
 ]
 
 ???
++ erstmal noch **kein Problem**, Standard JS-Verhalten
 + Funktion hat eigenen Scope
 + IIFE muss aufgerufen werden, sonst könnten die äußeren `a` und `b` nicht potentiell überschrieben werden (wenn man in der fn var weglässt werden die äußeren Variablen überschrieben, aber nur wenn man die IIFE aufruft)
 
@@ -998,6 +1005,7 @@ class: s s-top
 
 ???
 + Letztes generelles Problem
++ .text-red[direkt zur Lösung 3 Folien weiter springen?]
 
 ---
 
@@ -1118,34 +1126,35 @@ class: s s-center s_padding-small
 '0' == ''; // false
 ```
 
-Denn wenn gilt, dass
+Denn:
 
 ```javascript
-a == b;
-b == c;
+a == b
+b == c
+*a != c
 ```
 
-folgt daraus _nicht_, dass auch `a == c`
-
 ???
+.grey[
 + `==` ist **kommutativ** (Seiten vertauschbar) aber **nicht transitiv** (wenn `a==b` und `b==c` folgt daraus nicht immer, dass auch `a==c`)
-
-+ Eklärung: http://stackoverflow.com/a/5447170/1881819
++ Erklärung: [http://stackoverflow.com/a/5447170/1881819](http://stackoverflow.com/a/5447170/1881819)
 
 **weitere Beispiele:**
 ```javascript
-false == '0'        // true
+undefined == null   // true
 false == undefined  // false
 false == null       // false
-null == undefined   // true
+
+false == '0'        // true
 
 '      ' == 0 // true
 '\n\r\t' == 0 // true
 ```
 
-Quellen:
-http://www.shawnrenner.com/the-dangers-of-double-equals-in-javascript/
-http://stackoverflow.com/a/359509/1881819
++ Quellen:
+  - http://www.shawnrenner.com/the-dangers-of-double-equals-in-javascript/
+  - http://stackoverflow.com/a/359509/1881819
+]
 
 ---
 
@@ -1161,6 +1170,7 @@ class: s s-center
 ]
 
 ???
++ **strikte Gleichheit**: prüft Typen mit (`typeof`)
 + Brendan Eich wollte für JavaScript 1.2 einen Opt-in einbauen, verworfen, da es zu wenig Leute benutzt hätten
 
 ---
@@ -1182,8 +1192,13 @@ class: s s-center
 + überraschende Voreinstellungen (`Math.max`)
 + Arrays sind numerisch _und_ assoziativ indiziert
 + implizite Semikolons
-+ JS hat Funktionsscope
-+ `==`, einer der häufigsten Operatoren aus anderen Sprachen, ist gefährlich
++ JS hat ungewohnten Funktionsscope
++ `==` ist gefährlich
++ mehr: [wtfjs.com](http://wtfjs.com)
+]
+
+???
+.grey[
 + ... wir haben nur eine Stichprobe der Probleme gesehen
 ]
 
@@ -1194,14 +1209,16 @@ class: s s-center
 ## .. zusammengefasst
 
 .c-list.c-list_narrow.u-width-70[
-+ **Ursachen nicht durch ES6 behebbar**, aber Auswirkungen teils linderbar
++ **Ursachen nicht durch ES6 lösbar**, aber ES6 fügt neue Möglichkeiten hinzu einige dieser Probleme **zu umgehen**
 + _Principle of Least Surprise_ verletzt
- - versteckte Fehlerquellen
- - **böse Überraschungen**, schwer zu finden &amp; debuggen
-+ alle Sprachen haben Überraschungen, aber JS hat relativ viele
+ - relativ viele versteckte Fehlerquellen
 + JS ist schwer, Erfahrung wichtig
-+ Codeanalysetools wie **JSHint** helfen dabei, sich nicht in den Fuß zu schießen (wenn sie benutzt werden)
-+ [wtfjs.com](http://wtfjs.com)
++ Codeanalysetools wie **JSHint** sind hilfreich
+]
+
+???
+.grey[
++ JSHint: wenn man's denn benutzt
 ]
 
 ---
@@ -1240,7 +1257,7 @@ background-image: url(images/p/leather-gloves.jpg)
 ---
 
 class: s s-top s-left
-## <u>Implizite globale Variablen</u> &amp; Hoisting
+## II. <u>Implizite globale Variablen</u> &amp; Hoisting
 
 ```javascript
 var foo = "Ich bin global";
@@ -1255,11 +1272,12 @@ foo; // "Ich bin global"
 ???
 + Zum zweiten Teil der Problemschau, also Problemen die ES6 direkt adressiert
 + Codebeispiele sind immer noch ES5, nicht 6
++ ein aufbauendes Codebeispiel, beginnen mit impliziten globalen Variablen
 
 ---
 
 class: s s-top s-left
-## <u>Implizite globale Variablen</u> &amp; Hoisting
+## II. <u>Implizite globale Variablen</u> &amp; Hoisting
 
 ```javascript
 var foo = "Ich bin global";
@@ -1273,14 +1291,13 @@ var foo = "Ich bin global";
 
 ???
 + wenn ich jetzt `var` in der Funktion vergesse, verändere ich auf einmal das globale `foo`. 
-+ wenn es foo global noch nicht gäbe würde JS mir mal eben eine machen
++ wenn es foo global noch nicht gäbe würde JS mir mal eben eine machen (aber nicht im **strict** mode)
 + JS macht hier **zu viele Annahmen** darüber was ich machen will
-+ &rArr; **Überraschungen** selbst für erfahrene Programmierer
 
 ---
 
 class: s s-top s-left
-## Implizite globale Variablen &amp; <u>Hoisting</u>
+## II. Implizite globale Variablen &amp; <u>Hoisting</u>
 
 ```javascript
 var foo = "Ich bin global";
@@ -1296,12 +1313,12 @@ foo; // ???
 ```
 
 ???
-+ Nun zum sog. **Hoisting**, was passiert, wenn wir am Ende der Funktion eine lokale Variable `foo` initialisieren?
++ Nun zum sog. **Hoisting** (Flaggenhissen): was passiert, wenn wir am Ende der Funktion eine lokale Variable `foo` initialisieren?
 
 ---
 
 class: s s-top s-left
-## Implizite globale Variablen &amp; <u>Hoisting</u>
+## II. Implizite globale Variablen &amp; <u>Hoisting</u>
 
 ```javascript
 var foo = "Ich bin global";
@@ -1317,7 +1334,7 @@ var foo = "Ich bin global";
 ```
 
 ???
-+ Hoisting (wie "Flagge hissen"): **Variablen*deklaration* (aber nicht -initialisierung) greift schon am Anfang der Funktion**.
++ Hoisting: **Variablen*deklaration* (aber nicht -initialisierung) steigy zum Anfang der Funktion auf**.
 + Woher weiß ich beim ersten `foo = `, dass unten noch `var` kommt? Was, wenn das jemand später hinzufügt?
 
 ---
@@ -1335,25 +1352,17 @@ background-image: url(images/flag.png)
 
 ---
 
-class: s s-center
+class: s s-center s_background-green s_padding-none
 
-## Probleme, die ES6 adressiert
-+ `this`
-+ block scope (hoisting)
-  -> Ian Davis Präsentation
-+ Promises, Klassen, Module vereinheitlicht (davor Fragmentierung der Tools)
-
----
-
-KOMMT NOCH: ES6 Features :)
-arrow syntax,
-destructuring,
-...
-
-+ kein vollständiger Überblick
+.s--headline-overlay[
+# 2. ECMAScript 6 Praxis
+]
+.unstyled-wrapper[<br>
+## A. Sprachfeatures<br><br>B. Wie heute schon benutzen?
+]
 
 ???
-+ ES6 hat zu viele neue Features, als das man sie alle in anderthalb Stunden vorstellen könnte
++ kein vollständiger Überblick
 
 ---
 
@@ -1429,8 +1438,6 @@ workarounds vor ES6: jQuery, Underscore.js, JSHint, Babel Warnungen
 
 ---
 
-https://kangax.github.io/compat-table/es6/
-
 asm.js, emscripten,
 compile to JS languages (CoffeeScript, ClojureScript, Dart, Typescript, PureScript, Elm, ...)
 
@@ -1441,6 +1448,31 @@ ES6 Features
 bei beiden: davor Chaos, viele verschiedene Implementierungen
 
 ES6 macht den Einstieg leichter, man braucht weniger Libraries wie underscore.JS oder jQuery
+
+---
+
+class: s s-center s_background-blue
+
+# B. Wie heute schon benutzen?
+
+
+---
+
+class: s s-top s_background-35 s_background-bottom
+background-image: url(images/babel.png)
+
+.u-margin-bottom-20[
+# ES6 heute nutzen
+]
+
+.c-list.u-width-70[
++ [**Babel**](https://babeljs.io/): transpiliert ES6/7 zu ES5
++ daneben **Webpack** / Browserify als Packaging Tools, um ES6 Module zu nutzen
++ [paulkogel/simple-babel-webpack-starter-pack](https://github.com/paulkogel/simple-babel-webpack-starter-pack)
+]
+
+???
++ Link zu Jeremy Ashkenas-Vortrag "The Transpilers are coming"
 
 ---
 
@@ -1501,30 +1533,11 @@ class: s s-center
 
 ---
 
-## Tip
-nicht fragen welche Sprache oder welches Framework soll ich lernen. Egal was ihr lernt, schaut, dass ihr bessere Programmierer werdet indem ihr Grundlagen lernt, die von Dauer sind :)
-JavaScript zu lernen ist gerade eine der sichersten Wetten.
-
----
-
-Dokumentation:
-https://developer.mozilla.org/en/docs/Web/JavaScript
-
-[CologneJS](http://colognejs.de)
-
-
-Links:
-https://brendaneich.github.io/ModernWeb.tw-2015/
-https://shaunlebron.github.io/solar-system-of-js
-
-http://exploringjs.com/
-https://leanpub.com/understandinges6/read/
-https://github.com/addyosmani/es6-equivalents-in-es5
-projects.formidablelabs.com/es6-interactive-guide/
-
-https://kangax.github.io/compat-table/es6/
-
-https://github.com/jashkenas/coffeescript/wiki/list-of-languages-that-compile-to-js
+## Tips
++ nicht fragen welche Sprache oder welches Framework soll ich lernen. Egal was ihr lernt, schaut, dass ihr bessere Programmierer werdet indem ihr Grundlagen lernt, die von Dauer sind - gemeinsame Patterns, die es in mehreren Sprachen gibt lernen
++ JavaScript macht gerade viel Spaß, da dort viel passiert und mit Babel, ES6&7 endlich auch die Syntax erweitert werden kann
++ andere Sprachen anschauen, nur so kann man seine eigenen Sprachen kritisch betrachten
+  - ähnlich wie Grammatik lernen: geht in Fremdsprache viel einfacher als in Muttersprache
 
 ---
 
@@ -1569,13 +1582,17 @@ class: s s-top u-no-padding-horizontal
 
 ---
 
-class: s s-center
+class: s s_padding-small
 
-# Bildquellen
-+ Dilbert
-+ Office Space
-+ Star Wars
+## Links
 
----
-
-you can create class methods with `static` before method name: http://www.2ality.com/2015/02/es6-classes-final.html
++ [JavaScript API beim Mozilla Developer Network](https://developer.mozilla.org/en/docs/Web/JavaScript)
++ [CologneJS](http://colognejs.de)
++ https://brendaneich.github.io/ModernWeb.tw-2015/
++ https://shaunlebron.github.io/solar-system-of-js
++ http://exploringjs.com/
++ https://leanpub.com/understandinges6/read/
++ https://github.com/addyosmani/es6-equivalents-in-es5
++ projects.formidablelabs.com/es6-interactive-guide/
++ https://kangax.github.io/compat-table/es6/
++ https://github.com/jashkenas/coffeescript/wiki/list-of-languages-that-compile-to-js

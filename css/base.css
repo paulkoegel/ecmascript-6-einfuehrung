@@ -54,7 +54,7 @@ img {
 }
 
 a, a:visited {
-  color: #00CB7A;
+  color: #00B36B;
 }
 
 ul {
@@ -126,5 +126,18 @@ iframe {
 }
 
 .remark-notes-area .grey {
-  color: #ccc;
+  color: #ddd;
+  font-size: 2rem;
+}
+
+.remark-notes-area .grey a {
+  color: #ddd;
+}
+.remark-notes-area .grey .remark-inline-code {
+  color: #aaa;
+}
+
+.remark-code-line-highlighted {
+  /* rgb(255, 103, 0) */
+  background-color: rgba(255, 255, 0, 0.8);
 }
