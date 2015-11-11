@@ -29,17 +29,28 @@ background-image: url(images/paul-kogel.jpg)
 
 ## Paul Kögel
 .c-list.c-list_narrow[
-+ User Interfaces bei [.text-green[Railslove]](http://railslove.com)
-+ ❤ JavaScript - trotz aller Kritik
-+ .. und Ruby und Clojure
++ User Interfaces bei [Railslove](http://railslove.com)
++ JavaScript, Ruby und Clojure
 + [@wakkahari](https://twitter.com/wakkahari)
 ]
-
 
 ???
 + kurz **vorstellen**
 + Frontends: JavaScript vor allem aus dem **Browser**
 + **freu mich** euch heute ES6 vorzustellen
+
+---
+class: s s-center s_background-fit s_background-grey
+background-image: url(images/railslove-heart.svg)
+
+.text-white[
+# JavaScript
+]
+
+???
++ werden heute **Finger in ein paar Wunden legen** und uns JS's **Schwächen** anschauen
++ Sprache nicht madig machen
++ trotzdem eine meiner liebsten Sprachen, da man so schöne Sachen damit machen kann
 
 ---
 
@@ -62,7 +73,6 @@ background-image: url(images/p/dilbert-lunch-cut.png)
   + Wie benutzen?
 3. **Fazit &amp; Ausblick**
   + Sprachdesign und -auswahl
-  + JS als Assembler des Webs
 ]
 ]
 
@@ -314,7 +324,7 @@ class: s s-top s_padding-small
 
 ## JavaScripts Aufstieg
 
-.c-list[
+.c-list.c-list_narrow[
 + **Ende der 90er**:
   - kleine Skripte
   - Java Applets
@@ -324,6 +334,8 @@ class: s s-top s_padding-small
 + **2007**: iPhone &rArr; Flash auf dem Rückzug
 + **2008**: Google Chrome &amp; v8
 + **2009**: Node.js, ES5
++ **2010**: Backbone.js
++ **2013**: React
 ]
 
 ???
@@ -331,15 +343,16 @@ TIOBE Index vgl.: [http://www.heise.de/developer/meldung/Programmiersprachen-Top
 
 ---
 
-class: s s-center
+class: s s-top s_background-bottom s_background-50
+background-image: url(images/full-stack-homer.jpg)
 
 .u-no-margin-bottom[
 ## JavaScript 2015:
 ]
 
-+ 8.-populärste Programmiersprache
++ acht-populärste Programmiersprache
 + Flash tot, JS konkurrenzlos!?!
-+ Wirtschaft mag 1 Sprache
++ Wirtschaft mag _eine_ Sprache für alles
 
 ???
 full stack: Frontend, Backend (nodeJS), Datenbank (Mongo, CouchDB)
@@ -353,21 +366,24 @@ nicht ganz konkurrenzlos, wg. compile-to-JS Sprachen
 ---
 
 class: s s-center s_background-cover
-background-image: url(images/p/jumped-the-shark.jpg)
-
-
+background-image: url(images/p/cat-dog-train.jpg)
 
 ???
-+ also alles super, wir gehen die neuen Features von ES6 durch und uns haut's alle aus den Socken
++ also alles super, wir gehen die neuen Features von ES6 durch und uns haut's alle aus den Socken!?
 
 ---
 
 class: s s-center s_padding-none s_background-cover
-background-image: url(images/p/island-storm.jpg)
+background-image: url(images/p/grumpy-cat.jpg)
 
 .s--headline-overlay[
-# Probleme
+# Unangesprochene Probleme
 ]
+
+???
++ leider nicht, erst müssen wir über JavaScripts Probleme sprechen
++ .text-light-grey[Probleme sind wichtiger Teil der Motivation von ES6 und JavaScripts Zukunft sieht gut aus, da es einen regen Austausch über Probleme und riesige Entwicklergemeinde gibt, die in allen Richtungen an Verbesserungsmöglichkeiten arbeitet]
++ ** &rArr; Ursprung aller Probleme:**
 
 ---
 
@@ -423,11 +439,11 @@ class: s s-top s_background-red
 
 ---
 
-class: s s-top
+class: s s-bottom s_padding-none s_background-cover
+background-image: url(images/javascript-good-bad-parts.jpg)
 
-## JavaScript in einem Bild
-.u-width-70[
-![](images/javascript-good-bad-parts.jpg)
+.s--headline-overlay[
+# JavaScript in einem Bild
 ]
 
 ???
@@ -445,37 +461,44 @@ background-image: url(images/p/death-star-2-weakness.jpg)
 # Verdammt zur Abwärtskompatibilität
 ]
 
+???
++ schlechte Teile werden nicht mehr verschwinden
+
 ---
 
 class: s_background-cover
-
 background-image: url(images/death-star-2-boom.gif)
 
 ---
 
-class: s s-center s_background-40 s_background-bottom
+class: s s-top s_background-40 s_background-bottom
 background-image: url(images/brendan-eich.jpg)
 
 .u-width-70[
-.text-quote.text-medium[
-„Ich habe 1995 JavaScript verbrochen und versuche es seitdem wiedergutzumachen.“
+.text-quote.text-small.c-eich-quote[
+„Ich habe 1995 JavaScript **verbrochen** und versuche es seitdem wiedergutzumachen.
+...
+Ich habe einen **Prototypen** gebaut, der zu früh zum ausgelieferten Produkt gemacht wurde und dann konnte ihn** nicht mehr ändern**.“
 ]
-.text-quote--author.text-small[
-&ndash; Brendan Eich, JavaScript Jabber Podcast
+.text-quote--author.text-smaller[
+&ndash; Brendan Eich
 ]
-<br><br><br>
 ]
+
+???
+Quelle:
+JavaScript Jabber Podcast &amp; Ian Davis Vortrag
 
 ---
 
-class: s s-top s_background-20 s_background-bottom
+class: s s-top s_background-20 s_background-bottom s_padding-small
 background-image: url(images/javascript-logo.jpg)
 
 ## Warum also JavaScript?
 
 .c-list.u-width-70[
 + nicht bekannt für besondere Eleganz oder Robustheit
-  - eher für .text-red[**Brüchigkeit**] und .text-red[**böse Überraschungen**]
+  - eher für .text-red[**Brüchigkeit**], .text-red[**böse Überraschungen**], Eigenarten, Widersprüchlichkeiten
   - man _kann_ .text-green[**elegante Programme**] schreiben, aber schwierig
 + .text-green[**Sprache des Webs**]
 + .text-green[**schnell sichtbare Ergebnisse**]
@@ -510,13 +533,14 @@ JavaScript ist trotzdem **super**!
 
 ---
 
-class: s s-top s_background-bottom s_background-50
-background-image: url(images/full-stack-homer.jpg)
+class: s s-top
 
 ## Evolutionäre Fitness bedroht
 .c-list.u-width-70[
 + JavaScript war nicht dafür gedacht **komplexe Webanwendungen** zu schreiben
 + wird heute für _alles_ benutzt
++ sollte möglichst **leichten** Einstieg liefern, Netscape hat sich aber nicht die Zeit genommen die Sprache **einfach** zu halten, sondern früh **Komplexität** angehäuft (z.B. implizite Semikolons)
+  - &rArr; Vortrag [Simplicity matters](https://www.youtube.com/watch?v=rI8tNMsozo0) - Rich Hickey
 ]
 
 ---
@@ -575,7 +599,7 @@ background-image: url(images/p/uk-tap-fixed.jpg)
 
 class: s s-center s_background-blue
 
-## I. Fünf generelle Probleme von JavaScript<br><br> II. Probleme, die ES6 lindert
+## I. Fünf generelle Probleme von JavaScript<br><br>.text-light-grey.text-medium-small.text-center.u-block[&ndash; Zwischenfazit &ndash;]<br> II. Probleme, die ES6 lindert
 
 + beides nur in begrenzter Auswahl
 
@@ -594,6 +618,9 @@ Math.max()
 + **C**: `-Infinity`
 + **D**: `NaN`
 + **E**: `9007199254740992`
+
+???
++ bei diesen Quizzes kann man sich nicht blamieren - JS ist ziemlich eigenartig
 
 ---
 
@@ -1027,7 +1054,7 @@ class: s s-center
 ## Zusammengefasst ..
 
 .c-list.u-width-70[
-+ überraschende Vorsteinstellungen (`Math.max`)
++ überraschende Voreinstellungen (`Math.max`)
 + Arrays sind numerisch _und_ assoziativ indiziert
 + implizite Semikolons
 + JS hat Funktionsscope
@@ -1039,7 +1066,7 @@ class: s s-center
 
 class: s s-center
 
-## .. Zusammengefasst
+## .. zusammengefasst
 
 .c-list.c-list_narrow.u-width-70[
 + **Ursachen nicht durch ES6 behebbar**, aber Auswirkungen teils linderbar
@@ -1073,15 +1100,16 @@ class: s s-top s_background-bottom
 background-image: url(images/p/leather-gloves.jpg)
 
 .u-no-margin-vertical[
-## ECMAScript 6 =<br> Lederhandschuhe für JavaScript
+## ECMAScript 6 =<br> <u>Leder</u>handschuhe für JavaScript
 ]
 .u-width-70.text-small[
 + .text-smaller[man kann sich immer noch verletzen]
-+ .text-smaller[man muss die Handschuhe nicht anziehen (kann immer noch ES5 schreiben]
++ .text-smaller[man muss die Handschuhe nicht anziehen (kann immer noch ES5 schreiben)]
 + .text-smaller[_wenn_ man sie anzieht (d.h. neue ES6-Funktionen nutzt), wird das Arbeiten mit JavaScript um einiges angenehmer]
 ]
 
 ???
++ Leder-, nicht Kettenhandschuhe
 + durchkommen der Zacken lässt sich nicht vermeiden (Abwärtskompatibilität), aber man kann jetzt besser an den weniger spitzen Stellen seine Finger ablegen, um das Schwert zu halten
 
 ---

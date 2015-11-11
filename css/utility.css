@@ -99,3 +99,7 @@
 .u-line-height-37 {
   line-height: 3.7rem;
 }
+
+.u-block {
+  display: block;
+}

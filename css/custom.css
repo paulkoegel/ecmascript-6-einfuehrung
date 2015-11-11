@@ -95,3 +95,8 @@
   counter-increment: item;
   margin-left: -45px;
 }
+
+.c-eich-quote {
+  font-size: 3.5rem;
+  line-height: 4.8rem;
+}
