@@ -1366,6 +1366,121 @@ class: s s-center s_background-green s_padding-none
 
 ---
 
+class: s s-top
+
+## `let` - Variablen mit Blockscope
+
+.row[
+.col.col-50.u-no-padding-horizontal[
+.text-code_medium[
+```
+var outer = true;
+if(true) {
+*  var inner = outer;
+}
+*console.log(inner === outer);
+// true
+```]
+]
+
+.col.col-50.u-no-padding-horizontal[
+.text-code_medium[```
+let outer = true;
+if(true) {
+*  let inner = outer;
+}
+*console.log(inner === outer);
+// ReferenceError:
+// inner is not defined
+```]
+]
+]
+
+---
+
+class: s s-top
+
+## Destrukturierung von Objekten
+
+```javascript
+let user = { first: "Peter", last: "Parker"};
+
+*let {first, last} = user; // Reihenfolge egal
+first // "Peter"
+
+
+*let {first: f, last: l} = user; // mit Aliasen
+f // "Peter"
+```
+
+---
+
+## Destrukturierung von Funktionsargumenten
+
+```javascript
+let user = {first: 'Peter', last: 'Parker'};
+
+*let greet = ({first, last}) => {
+  return `Hallo, ${first} ${last}!`;
+}
+
+greet(user); // 'Hallo, Peter Parker!'
+```
+
+---
+
+# Destrukturierung von Arrays
+
+```javascript
+*let [x, y] = ['a', 'b']
+x // 'a'
+y // 'b'
+
+*let [x, y, ...rest] = [1, 2, 3, 4, 5]
+x    // 1
+y    // 2
+rest // [3, 4, 5]
+```
+
++ `...` heißt **Spreadoperator**
+
+---
+
+# Destrukturierung von Arrays
+
+```javascript
+*let [x, y] = ['a']
+x; // 'a'
+y; // undefined
+```
+
+### Mit Standardwerten
+
+```javascript
+*let [x, y='b'] = ['a']
+x // 'a'
+y // 'b'
+```
+
+---
+
+# Objektliterale in Kurzchreibweise
+
+```javascript
+let name =  'Jim Smith';
+let email = 'jim@smith.com';
+*let user = { name, email };
+
+user // {name: 'Jim Smith', email: 'jim@smith.com'}
+```
+
+Kurzschreibweise für:
+```javascript
+let user = { name: name, email: email }
+```
+
+---
+
 class: s s-center
 
 ## ES6 Gotchas

@@ -46,6 +46,11 @@
   margin-bottom: 0;
 }
 
+.u-no-margin-horizontal, .u-no-margin-horizontal > * {
+  margin-left: 0;
+  margin-right: 0;
+}
+
 .u-margin-top-20 {
   margin-top: 2rem;
 }
