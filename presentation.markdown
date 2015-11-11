@@ -460,8 +460,8 @@ class: s s-top s_padding-small
 .c-list.u-width-50[
 <br>
 + **A**: `true, true, true`
-+ **C**: `true, true, false`
-+ **D**: `false, false, false`
++ **B**: `true, true, false`
++ **C**: `false, false, false`
 ]
 
 ???
@@ -471,7 +471,7 @@ class: s s-top s_padding-small
 
 class: s s-top s_padding-none
 
-## I.5 `==` (lose Gleichheit)
+## I.5 Antwort: B
 
 .row[
 .col.col-33[
@@ -482,7 +482,7 @@ class: s s-top s_padding-none
 
 .text-small[
 <br>String wird zu Integer konvertiert.<br>
-(Hätte genauso gut anders herum sein können.)
+(Hätte genauso gut andersherum sein können.)
 ]
 
 ]
