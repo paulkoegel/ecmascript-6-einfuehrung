@@ -132,6 +132,10 @@
   background-size: auto 20% !important;
 }
 
+.s_background-25 {
+  background-size: auto 25% !important;
+}
+
 .s_background-30 {
   background-size: auto 30% !important;
 }
@@ -207,6 +211,10 @@
 
 .s_no-padding {
   padding: 0
+}
+
+.s_small-padding {
+  padding: 2rem;
 }
 
 .s--overlay-container {

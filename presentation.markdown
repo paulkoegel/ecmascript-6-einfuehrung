@@ -45,22 +45,22 @@ background-image: url(images/p/dilbert-lunch-cut.png)
 
 .row.u-full-width.c-inhalt--list[
 .col.col-50.u-padding-left-100[
-1. **Hintergrund**
+1. **ECMAScript 6 Praxis**
   + Begrifflichkeiten
-  + Geschichte
-  + Probleme
-  + Motivation für ES6
+  + Probleme von ES5
+  + Sprachfeatures
+  + Wie benutzen?
 ]
 
 .col.col-50.c-inhalt--ol-with-counter[
-2. **ES6 Praxis**
-  + Sprachfeatures
-  + Nutzung mit Transpiler Babel
-3. Ausblick
-  + ES7
+2. **Hintergrund**
+  + Geschichte von JavaScript
+  + Lektionen daraus für Sprachdesign und -auswahl
+3. Fazit und Ausblick
   + Assembler des Webs
 ]
 ]
+
 
 ???
 + beginnen mit Erklärung der Namen - warum heißt das ausgerechnet JavaScript und warum heißen Versionen davon ECMAScript?
@@ -69,6 +69,21 @@ background-image: url(images/p/dilbert-lunch-cut.png)
 + schließlich zeig ich euch Probleme, die großer Teil der Motivation für ES6 waren
 
 + im **2. Teil**
+
+---
+
+background-image: url(images/p/catbert.png)
+class: s s-top s_background-bottom s_background-30
+<br>
+<br>
+# <u>Java</u>Script ≠ <u>Java</u>
+
+wie ham-hamster, car-carpet, Hahn-halver Hahn
+
+???
++ das Wichtigste am Anfang
++ haben nichts miteinander zu tun
++ werden gleichs sehen wie es zu dem unglücklichen Namen kommt
 
 ---
 
@@ -96,7 +111,7 @@ class: s s-center
 ## Ziele von ECMAScript 6
 
 .c-list.u-width-70[
-+ **Syntaxerweiterungen** und neue Features, um das Entwickeln von **komplexen Anwendungen** und Bibliotheken zu erleichtern
++ **Syntaxerweiterungen** und neue **Features**, um das Entwickeln von **komplexen Anwendungen** und Bibliotheken zu erleichtern
 + JavaScript besser an heutige Bedürfnisse anpassen
 + besser verstehbarer und wartbarer Code
 ]
@@ -154,6 +169,38 @@ class: s s-center
 
 ---
 
+class: s s-center
+
+## Quiz
+```javascript
+Math.max()
+// ???
+
+// A: Infinity
+// B: 0
+// C: -Infinity
+// D: NaN
+// E: 9007199254740992
+```
+
+---
+
+class: s s-center
+
+## Antwort: C
+```javascript
+Math.max()
+// ???
+
+// A: Infinity
+// B: 0
+// C: -Infinity (!!!)
+// D: NaN
+// E: 9007199254740992
+```
+
+---
+
 class: s s-top s_background-bottom s_background-50
 background-image: url(images/office-space-lumbergh-hmmm.jpg)
 
@@ -174,7 +221,7 @@ Math.min();
 
 ---
 
-class: s s-center
+class: s s-top s_small-padding
 
 # Array-Indizes
 
@@ -186,22 +233,93 @@ myArray;          // []
 myArray.length;   // 0
 myArray['-1'];    // 'a'
 ```
-
+<br>
+.c-list.u-width-70[
 + Array-indizes außerhalb des gültigen Nummernbereichs (0 bis 2<sup>32</sup>-1) werden zu Strings umgewandelt.
 + JS-Arrays können Strings als Indizes haben, diese Elemente lassen sich jedoch nur explizit auslesen und erhöhen `length` nicht.
+]
+
+---
+
+class: s s-top
+
+## Quiz: Scope
+
+.text-code_medium[
+```javascript
+var a = 1,
+    b = 1;
+
+(function() {
+  var a = 2,
+      b = 2;
+})();
+
+a; // ???
+b; // ???
+```
+]
+
+???
++ Funktion hat eigenen Scope
++ IIFE muss aufgerufen werden, sonst könnten die äußeren `a` und `b` nicht potentiell überschrieben werden (wenn man in der fn var weglässt werden die äußeren Variablen überschrieben, aber nur wenn man die IIFE aufruft)
+
+---
+
+class: s s-top
+
+## Quiz: Scope
+
+.text-code_medium[
+```javascript
+var a = 1,
+    b = 1;
+
+(function() {
+  var a = 2,
+      b = 2;
+})();
+
+a; // 1
+b; // 1
+```
+]
+
+???
++ Funktion hat eigenen Scope
 
 ---
 
 class: s s-top s_no-padding
 
-## Implizite Semikolons
+## Was passiert wenn man 2 Semikolons weglässt?
 
 .text-code_medium[
 ```javascript
 var a = 1 // (!!!)
     b = 1;
 
-(function() { // neuer Scope
+(function() {
+  var a = 2 // (!!!)
+      b = 2;
+})();
+
+a; // ???
+b; // ???
+```
+]
+---
+
+class: s s-top s_no-padding
+
+## Was passiert wenn man 2 Semikolons weglässt?
+
+.text-code_medium[
+```javascript
+var a = 1 // (!!!)
+    b = 1;
+
+(function() {
   var a = 2 // (!!!)
       b = 2;
 })();
@@ -213,8 +331,7 @@ b; // 2
 
 .u-width-70.text-small[
 <br>
-Mit Komma an beiden `(!!!)` Stellen wäre `b == 1`.<br>
-Der Zeilenumbruch setzt implizit ein Semikolon, wodurch `b = ...` ein Attribut auf dem globalen Objekt `window` setzt.
+Der Zeilenumbruch setzt implizit ein Semikolon, wodurch<br> `b = ...` keine Variablenzuweisung mehr ist, sondern eine Attributszuweisung auf dem globalen `window`-Objekt wird.
 ]
 
 ---
@@ -440,19 +557,6 @@ background-image: url(images/p/death-star-briefing.jpg)
 .s--headline-overlay[
 # 1. Hintergrund
 ]
-
----
-
-background-image: url(images/p/catbert.png)
-class: s s-top s_background-bottom s_background-30
-<br>
-<br>
-# <u>Java</u>Script ≠ <u>Java</u>
-
-???
-+ das Wichtigste am Anfang
-+ haben nichts miteinander zu tun
-+ werden gleichs sehen wie es zu dem unglücklichen Namen kommt
 
 ---
 
@@ -900,7 +1004,7 @@ JavaScript ist trotzdem **super**!
 
 class: s s-center
 
-# „Draufspachteln“
+# &bdquo;Draufspachteln&ldquo;
 .c-list.u-width-70[
 + Semantik von `==` lässt sich nicht mehr ändern, da bestehender Code davon abhängt
 + `===` (strikte Gleichheit) hinzugefügt.
@@ -955,6 +1059,52 @@ class: s s-center
 # Babel
 
 `npm install -g babel-cli`
+
+---
+
+class: s s-center
+
+## Sprachen beurteilen
+
+.c-list.u-width-70[
++ es gibt **keine universell beste** Programmiersprache
++ jede Sprache ist ein **Kompromiss**, der bestimmt Vor- und Nachteile mit sich bringt
++ &bdquo;Sprache X ist **gut geeignet** Probleme der und der Art zu lösen&ldquo;
+]
+
+---
+
+class: s s-top s_background-25 s_background-bottom s_small-padding
+background-image: url(images/blobfish.jpg)
+
+## Evolution von Programmiersprachen
+
+.c-list.u-width-70[
++ Probleme = **Beute**
++ Programmierprachen = **Jäger**
++ Hardware &amp; Infrastruktur = **Ökosystem**
+<br><br>
++ evolutionäre Anpassung ist unabhängig von Schönheit
++ Fortran &amp; COBOL waren gut für die Probleme ihrer Zeit
+]
+
+---
+
+class: s s_background-grey
+background-image: url(images/goetz-stewardship.png)
+
+---
+
+class: s s-center
+
+## Schwierigkeit für Sprachschöpfer
+
+.c-list.u-width-70[
++ Konzequenzen von Änderungen und Erweiterungen sind schwer abzuschätzen
+  - deshalb war ES6 sechs Jahre in der Mache
++ Features, die zunächst gefeiert wurden und dann zum Tod der Sprache führten
+  - COBOLs `ALTER`-Befehl, um `GOTO`-Ziele von Paragraphen von außen zu ändern
+]
 
 ---
 
