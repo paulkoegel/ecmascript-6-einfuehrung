@@ -34,8 +34,9 @@ background-image: url(images/paul-kogel.jpg)
 
 
 ???
-+ kurz vorstellen
++ kurz **vorstellen**
 + Frontends: JavaScript vor allem aus dem **Browser**
++ **freu mich** euch heute ES6 vorzustellen
 
 ---
 
@@ -289,19 +290,14 @@ myArray[NaN];  //'x'
 
 ---
 
-+ _Principle of Least Surprise_ wird deutlich verletzt
-+ viele versteckte Fehlerquellen
-+ schwer zu beherrschende und zu meisternde Sprache
-+ viel Spezialwissen und Erfahrung nötig
-
----
-
 class: s s-center
 
 ## Fazit zu generellen Problemen
 
 .c-list.u-width-70[
 + **nicht durch ES6 behebbar** (Abwärtskompatibilität)
++ _Principle of Least Surprise_ verletzt
++ versteckte Fehlerquellen
 + schwer zu finden und zu debuggen
  -  können zu **bösen Überraschungen** führen
 + alle Sprachen haben Überraschungen, aber JS hat eher viele
