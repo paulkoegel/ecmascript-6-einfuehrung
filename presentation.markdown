@@ -1368,7 +1368,7 @@ class: s s-center s_background-green s_padding-none
 
 class: s s-top
 
-## `let` - Variablen mit Blockscope
+# `let` - Variablen mit Blockscope
 
 .row[
 .col.col-50.u-no-padding-horizontal[
@@ -1395,6 +1395,84 @@ if(true) {
 ```]
 ]
 ]
+
+---
+
+class: s s-top
+
+# `const` - Konstanten mit Blockscope
+
+```javascript
+const A_CONSTANT = 'Hello, hello!';
+
+A_CONSTANT = ''; // Fehler "A_CONSTANT" is read-only"
+```
+
+---
+
+## Template Strings zur Interpolation
+
+```javascript
+let user = {first: 'Peter', last: 'Parker'};
+
+// ES5
+var fullName = user.first + ' ' + user.last;
+// 'Peter Parker'
+
+// ES6
+*let fullName = `${user.first} ${user.last}`
+// 'Peter Parker'
+```
+
+---
+
+class: s s-top
+
+## Pfeilfunktionen
+
+```javascript
+let user = {first: 'Peter', last: 'Parker'};
+
+*let fullName = (first, last) => {
+  return `${first} ${last}`;
+}
+
+fullName(user.first, user.last);
+// 'Peter Parker'
+
+// ES5
+var fullName = function(first, last) {
+  // ...
+};
+
+```
+
+---
+
+class: s s-top
+
+## Pfeilfunktionen auf Objekten
+.u-no-margin-vertical[
+`this` ist automatisch richtig gesetzt!
+]
+
+.text-code_medium[
+```
+// ES6
+let car = {
+   model: 'Mercedes-Benz',
+   drivers: ['Anna', 'Bob'],
+   logDrivers() {
+      this.drivers.forEach((driver) => {
+*       console.log(`${driver} drives ${this.model}`)
+      });
+   }
+};
+```
+]
+
+???
++ in ES5 müsste `this` vorher in `self` oder `that` gespeichert werden.
 
 ---
 
@@ -1464,7 +1542,7 @@ y // 'b'
 
 ---
 
-# Objektliterale in Kurzchreibweise
+# Objektliterale in Kurzschreibweise
 
 ```javascript
 let name =  'Jim Smith';
@@ -1477,6 +1555,53 @@ user // {name: 'Jim Smith', email: 'jim@smith.com'}
 Kurzschreibweise für:
 ```javascript
 let user = { name: name, email: email }
+```
+
+---
+
+class: s s-center
+
+# Neue Arraymethoden
+
+```javascript
+
+[5, 1, 10, 8].find(n => n === 10) // 10
+
+[5, 1, 10, 8].findIndex(n => n === 10) // 2
+```
+
+???
++ man kann Pfeilfunktionen auch in einer Zeile schreiben
+
+---
+
+class: s s-center
+
+# Spreadoperator
+
+statt `apply`:
+```javascript
+let attributes = ['Peter Parker', 'peter@parker.com']
+
+let buildUser = (name, email) => {
+  return { name, email };
+}
+
+*buildUser(...attributes);
+// { name: "Peter Parker", email: "peter@parker.com" }
+```
+
+---
+
+class: s s-center
+
+# Neue Stringmethoden
+
+```javascript
+'hello'.startsWith('he');    // true
+'hello'.endsWith('he');      // false
+'hello'.includes('ell');     // true
+'hello '.repeat(3); // 'hello hello hello '
 ```
 
 ---
@@ -1645,6 +1770,22 @@ class: s s-center
 
 ## Trends:
 + JS sicherer machen mit zu-JS-kompilierenden Sprachen (Clojurescript, Typescript, Purescript, Elm etc.)
+
+---
+
+# Bantragtes ES7 Feature
+
+Objekte per Spreadoperator klonen:
+
+```javascript
+var oldObj = { foo: 'hello', bar: 'world' };
+var newObj = { ...oldObj, foo: 'hi' };
+console.log(newObj.foo); // 'hi';
+console.log(newObj.bar); // 'world';
+```
+
+???
++ Quelle: [https://gist.github.com/sebmarkbage/07bbe37bc42b6d4aef81#whats-with-the-weird--notation](https://gist.github.com/sebmarkbage/07bbe37bc42b6d4aef81#whats-with-the-weird--notation)
 
 ---
 
