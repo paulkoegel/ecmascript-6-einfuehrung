@@ -1117,7 +1117,7 @@ class: s s-center
 
 class: s s-center
 
-## ES6 zur Hilf!
+## ES6 zur Hülf!
 
 .c-list.c-list_narrow.u-width-70[
 + **_Ursachen_ nicht durch ES6 lösbar**, aber ES6 fügt neue Möglichkeiten hinzu Probleme **zu umgehen**
@@ -1463,11 +1463,11 @@ class: s s-top
 let user = { first: "Peter", last: "Parker"};
 
 *let {first, last} = user; // Reihenfolge egal
-first // "Peter"
+first; // "Peter"
 
 
 *let {first: f, last: l} = user; // mit Aliasen
-f // "Peter"
+f; // "Peter"
 ```
 
 ---
@@ -1488,16 +1488,22 @@ greet(user); // 'Hallo, Peter Parker!'
 
 # Destrukturierung von Arrays
 
+.text-code_medium[
 ```javascript
-*let [x, y] = ['a', 'b']
-x // 'a'
-y // 'b'
+// ES5
+var first = someArray[0];
+var second = someArray[1];
+var third = someArray[2];
 
-*let [x, y, ...rest] = [1, 2, 3, 4, 5]
-x    // 1
-y    // 2
-rest // [3, 4, 5]
+// ES6
+*let [first, second, third] = someArray;
+
+*let [first, second, ...rest] = [1, 2, 3, 4, 5];
+first;     // 1
+second;    // 2
+rest;      // [3, 4, 5]
 ```
+]
 
 + `...` heißt **Spreadoperator**
 
