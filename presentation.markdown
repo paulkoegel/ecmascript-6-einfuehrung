@@ -1727,31 +1727,6 @@ let user = {
 
 class: s s-center
 
-# &bdquo;Draufspachteln&ldquo;
-.c-list.u-width-70[
-+ Semantik von `==` lässt sich nicht mehr ändern, da bestehender Code davon abhängt
-+ `===` (strikte Gleichheit) hinzugefügt.
-+ Noch gröbere Schnitzer wurden aus der Sprache entfernt: früher ließ sich `undefined` überschreiben.
-]
-
-???
-+ `===` schaut sich `typeof` noch an.
-+ `NaN === NaN` gibt `false`
-+ auf die Variable von `var undefined` wird nicht zugegriffen sondern immer nur auf das echte undefined. `var undefined` wirft keinen Fehler.
-
----
-
-workarounds vor ES6: jQuery, Underscore.js, JSHint, Babel Warnungen
-
----
-
-asm.js, emscripten,
-compile to JS languages (CoffeeScript, ClojureScript, Dart, Typescript, PureScript, Elm, ...)
-
----
-
-class: s s-center
-
 # Einige weitere ES6 Features
 + Promises
 + Generator-Funktionen
@@ -1793,52 +1768,6 @@ background-image: url(images/babel.png)
 
 ---
 
-class: s s-center
-
-## Sprachen beurteilen
-
-.c-list.u-width-70[
-+ es gibt **keine universell beste** Programmiersprache
-+ jede Sprache ist ein **Kompromiss**, der bestimmt Vor- und Nachteile mit sich bringt
-+ &bdquo;Sprache X ist **gut geeignet** Probleme der und der Art zu lösen&ldquo;
-]
-
----
-
-class: s s-top s_background-25 s_background-bottom s_padding-small
-background-image: url(images/blobfish.jpg)
-
-## Evolution von Programmiersprachen
-
-.c-list.u-width-70[
-+ Probleme = **Beute**
-+ Programmiersprachen = **Jäger**
-+ Hardware &amp; Infrastruktur = **Ökosystem**
-<br><br>
-+ evolutionäre Anpassung ist unabhängig von Schönheit
-+ Fortran &amp; COBOL waren gut für die Probleme ihrer Zeit
-]
-
----
-
-class: s s_background-grey
-background-image: url(images/goetz-stewardship.png)
-
----
-
-class: s s-center
-
-## Schwierigkeit für Sprachschöpfer
-
-.c-list.u-width-70[
-+ Konsequenzen von Änderungen und Erweiterungen sind schwer abzuschätzen
-  - deshalb war ES6 sechs Jahre in der Mache
-+ Features, die zunächst gefeiert wurden und dann zum Tod der Sprache führten
-  - COBOLs `ALTER`-Befehl, um `GOTO`-Ziele von Paragraphen von außen zu ändern
-]
-
----
-
 # Ausblick
 
 + ES6 ist n Lederhandschuh, ClojureScript etc. ist n richtiges Schwert mit Griff
@@ -1850,82 +1779,12 @@ class: s s-center
 
 ---
 
-# Bantragtes ES7 Feature
+class: s s-center s_background-blue
 
-Objekte per Spreadoperator klonen:
+# ENDE. Fragen?
 
-```javascript
-var oldObj = { foo: 'hello', bar: 'world' };
-var newObj = { ...oldObj, foo: 'hi' };
-console.log(newObj.foo); // 'hi';
-console.log(newObj.bar); // 'world';
-```
+Danke für's Zuhören.  
+Lasst mich wissen, wenn ihr was gebaut habt oder Probleme habt.
 
-???
-+ Quelle: [https://gist.github.com/sebmarkbage/07bbe37bc42b6d4aef81#whats-with-the-weird--notation](https://gist.github.com/sebmarkbage/07bbe37bc42b6d4aef81#whats-with-the-weird--notation)
-
----
-
-## Tips
-+ nicht fragen welche Sprache oder welches Framework soll ich lernen. Egal was ihr lernt, schaut, dass ihr bessere Programmierer werdet indem ihr Grundlagen lernt, die von Dauer sind - gemeinsame Patterns, die es in mehreren Sprachen gibt lernen
-+ JavaScript macht gerade viel Spaß, da dort viel passiert und mit Babel, ES6&7 endlich auch die Syntax erweitert werden kann
-+ andere Sprachen anschauen, nur so kann man seine eigenen Sprachen kritisch betrachten
-  - ähnlich wie Grammatik lernen: geht in Fremdsprache viel einfacher als in Muttersprache
-
----
-
-class: s s-top u-no-padding-horizontal
-
-# Bonus: Spannende Entwicklungen
-
-.row[
-
-.col.col-33[
-.text-smaller[**JS Entwicklungen**]
-<br><br>
-.c-list.c-list_narrow[
-+ .text-smallest[ReactJS]
-+ .text-smallest[Immutable.js]
-+ .text-smallest[Flow]
-+ .text-smallest[GraphQL / Falcor]
-+ .text-smallest[Redux]
-+ .text-smallest[Transit]
-+ .text-smallest[Cycle.js]
-]]
-
-.col.col-33[
-.text-smaller[**Jenseits JS**]
-<br><br>
-.c-list.c-list_narrow[
-+ .text-smallest[ClojureScript]
-+ .text-smallest[Om]
-+ .text-smallest[DataScript]
-+ .text-smallest[Elm]
-]]
-
-.col.col-33[
-.text-smaller[**Spannende Themen**]
-<br><br>
-.c-list.c-list_narrow[
-+ .text-smallest[Funktionale Programmierung]
-+ .text-smallest[Unveränderliche Datenstrukturen (immutable data structures)]
-+ .text-smallest[Functional Reactive Programming]
-]]
-]
-
----
-
-class: s s_padding-small
-
-## Links
-
-+ [JavaScript API beim Mozilla Developer Network](https://developer.mozilla.org/en/docs/Web/JavaScript)
-+ [CologneJS](http://colognejs.de)
-+ https://brendaneich.github.io/ModernWeb.tw-2015/
-+ https://shaunlebron.github.io/solar-system-of-js
-+ http://exploringjs.com/
-+ https://leanpub.com/understandinges6/read/
-+ https://github.com/addyosmani/es6-equivalents-in-es5
-+ projects.formidablelabs.com/es6-interactive-guide/
-+ https://kangax.github.io/compat-table/es6/
-+ https://github.com/jashkenas/coffeescript/wiki/list-of-languages-that-compile-to-js
+@wakkahari  
+paul@railslove.com
