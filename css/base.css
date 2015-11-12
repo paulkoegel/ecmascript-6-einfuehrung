@@ -141,3 +141,7 @@ iframe {
   /* rgb(255, 103, 0) */
   background-color: rgba(255, 255, 0, 0.8);
 }
+
+.remark-notes-area .remark-bottom-area .remark-notes-preview-area .remark-notes-preview {
+  border-top: 2px solid red;
+}
