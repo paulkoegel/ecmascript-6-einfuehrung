@@ -1476,6 +1476,73 @@ let car = {
 
 ---
 
+# Klassen
+
+```javascript
+class Vehicle {
+  constructor(name) {
+    this.name = name;
+    this.kind = 'vehicle';
+  }
+  getName() {
+    return this.name;
+  }
+}
+
+let myVehicle = new Vehicle('rocky');
+```
+
+---
+
+# Vererbung
+
+```javascript
+class Car extends Vehicle {
+  constructor(name) {
+     super(name);
+     this.kind = 'car'
+  }
+}
+```
+
+---
+
+# Module: `export`
+
+```javascript
+// lib/math.js
+*export function sum(x, y) {
+  return x + y;
+}
+*export var pi = 3.141593;
+
+
+// app.js
+import { sum, pi } from "lib/math";
+```
+
+???
++ mehrere `export`s in einer Datei
++ `export` muss explizit sagen was exportiert wird (function oder var)
+
+---
+
+# Module: `export default`
+
+```javascript
+// lib/do-something.js
+*export default function() {
+  return 1;
+}
+
+
+// app.js
+*import doSomething from 'lib/do-something';
+doSomething();
+```
+
+---
+
 class: s s-top
 
 ## Destrukturierung von Objekten
@@ -1542,6 +1609,19 @@ y // 'b'
 
 ---
 
+# Standardwerte bei Funktionen
+
+```javascript
+*function doSomething(a, b = 0) {
+  return([a, b]);
+}
+
+doSomething(2);
+// [2, 0]
+```
+
+---
+
 # Objektliterale in Kurzschreibweise
 
 ```javascript
@@ -1589,19 +1669,6 @@ let buildUser = (name, email) => {
 
 *buildUser(...attributes);
 // { name: "Peter Parker", email: "peter@parker.com" }
-```
-
----
-
-class: s s-center
-
-# Neue Stringmethoden
-
-```javascript
-'hello'.startsWith('he');    // true
-'hello'.endsWith('he');      // false
-'hello'.includes('ell');     // true
-'hello '.repeat(3); // 'hello hello hello '
 ```
 
 ---
