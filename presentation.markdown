@@ -1752,12 +1752,13 @@ compile to JS languages (CoffeeScript, ClojureScript, Dart, Typescript, PureScri
 
 class: s s-center
 
-# Weitere ES6 Features
+# Einige weitere ES6 Features
 + Promises
 + Generator-Funktionen
 + Symbols
 + Maps
 + Sets
++ Erweiterungen der Standardbibliothek
 
 ???
 .grey[
