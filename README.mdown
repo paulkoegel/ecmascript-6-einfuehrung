@@ -2,7 +2,7 @@ ECMAScript 6
 ============
 
 #### Präsentation starten
-[https://paulkogel.github.io/es6-fh-koeln-2015-11-12](https://paulkogel.github.io/es6-fh-koeln-2015-11-12)
+[https://paulkogel.github.io/ecmascript-6-einfuehrung](https://paulkogel.github.io/ecmascript-6-einfuehrung)
 
 #### Tastaturkürzel
 + `p` zum Ein-/Ausblenden der Präsentationsnotizen
