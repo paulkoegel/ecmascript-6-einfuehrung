@@ -1749,19 +1749,28 @@ asm.js, emscripten,
 compile to JS languages (CoffeeScript, ClojureScript, Dart, Typescript, PureScript, Elm, ...)
 
 ---
-ES6 Features
-+ Promises
-+ Klassen
-bei beiden: davor Chaos, viele verschiedene Implementierungen
 
-ES6 macht den Einstieg leichter, man braucht weniger Libraries wie underscore.JS oder jQuery
+class: s s-center
+
+# Weitere ES6 Features
++ Promises
++ Generator-Funktionen
++ Symbols
++ Maps
++ Sets
+
+???
+.grey[
++ Maps: An Object has a prototype, so there are default keys in the map. This could be bypassed by using map = Object.create(null) since ES5, but was seldomly done.
+The keys of an Object are Strings and Symbols, where they can be any value for a Map.
+[https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map)
+]
 
 ---
 
 class: s s-center s_background-blue
 
 # B. Wie heute schon benutzen?
-
 
 ---
 
