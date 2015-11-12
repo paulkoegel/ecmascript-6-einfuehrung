@@ -1,3 +1,145 @@
+class: s s-top s_padding-small
+
+## I.2 Quiz: Array-Indizes
+
+```javascript
+var myArray = [1, 2, 3];
+myArray[-1] = 'a';
+myArray;          // ?????????
+```
+
+.c-list[
+<br>
++ **A**: `[1, 2, 3]`
++ **B**: `['a', 1, 2, 3]`
++ **C**: `[1, 2, 'a']`
+]
+
+???
++ .text-red[**überspringen???**]
++ .grey[Ruby: `myArray[-1]` für letztes Element des Arrays]
+
+---
+
+class: s s-top s_padding-small
+
+## I.2 Quiz: Array-Indizes
+
+```javascript
+var myArray = [1, 2, 3];
+myArray[-1] = 'a';
+myArray;          // ?????????
+```
+
+.c-list[
+<br>
++ .text-background-translucent-yellow[**A**: `[1, 2, 3]`]
++ **B**: `['a', 1, 2, 3]`
++ **C**: `[1, 2, 'a']`
+]
+
+---
+
+class: s s-top s_padding-small
+
+## I.2 Antwort: A
+
+```javascript
+var myArray = [1, 2, 3];
+myArray[-1] = 'a';
+*myArray;          // [1, 2, 3]
+myArray.length;   // 3
+myArray['-1'];    // 'a'
+```
+.c-list.u-padding-top-40[
++ .text-smaller[Arrays können **gleichzeitig assoziativ und numerisch** indizierte Elemente haben]
++ .text-smaller[Array-Indizes außerhalb **[0, 2<sup>32</sup>-1]** werden zu Strings umgewandelt]
++ .text-smaller[assoziativ indizierte Elemente lassen sich nur explizit auslesen.]
++ .text-smaller[&rArr; Arrays nur mit numerischem Index, Objekte für assoziative Arrays nutzen.]
+]
+
+???
+.grey[
++ außerdem: `myArray[-1]; // 'a'` und `myArray['0']; // 1`
++ [JavaScript Associative Arrays Considered Harmful](http://andrewdupont.net/2006/05/18/javascript-associative-arrays-considered-harmful)
+]
+
+---
+
+class: s s-top s-left
+
+## I.3 Quiz: 90.000$ Bug
+
+```javascript
+var myArray = [];
+var foo;
+myArray[foo++] = 'x';
+```
+
+**Was ist `myArray`?**
+.c-list[
++ **A**: `[<1 empty slot>, 'x']`
++ **B**:  `[]`
++ **C**: Wirft Fehler bei der letzten Zuweisung.
+]
+
+???
++ .text-red[**überspringen???**]
+
+---
+
+class: s s-top s-left
+
+## I.3 Quiz: 90.000$ Bug
+
+```javascript
+var myArray = [];
+var foo;
+myArray[foo++] = 'x';
+```
+
+**Was ist `myArray`?**
+.c-list[
++ **A**: `[<1 empty slot>, 'x']`
++ .text-background-translucent-yellow[**B**:  `[]`]
++ **C**: Wirft Fehler bei der letzten Zuweisung.
+]
+
+???
++ .text-red[**nächste Erklärungsfolie weglassen, um Zeit zu sparen?**]
+
+---
+
+class: s s-top s-left
+
+## I.3 Antwort: B
+
+```javascript
+var myArray = [];
+var foo;
+myArray[foo++] = 'x';
+
+*foo;           // undefined
+*foo++;         // NaN
+*myArray;       // []
+*myArray[NaN];  //'x'
+```
+
+.c-list.u-width-70.u-padding-top-40[
++ 90.000$ Schaden, da dieser Code ein paar Stunden in einem JS Bitcoin Client online war
+]
+
+???
++ `foo` ist `undefined`
++ `undefined++` gibt `NaN`
++ `myArray[NaN]` schreibt assoziativ indiziertes Element, kein Fehler wird geworfen
+
+.grey[
++ Quelle: [Type safety and RNGs](https://medium.com/@octskyward/type-safety-and-rngs-40e3ec71ab3a)
+]
+
+---
+
 class: s s-center
 
 ## Sprachen beurteilen
@@ -123,3 +265,69 @@ class: s s_padding-small
 + projects.formidablelabs.com/es6-interactive-guide/
 + https://kangax.github.io/compat-table/es6/
 + https://github.com/jashkenas/coffeescript/wiki/list-of-languages-that-compile-to-js
+
+---
+
+# Ausblick
+
++ ES6 ist n Lederhandschuh, ClojureScript etc. ist n richtiges Schwert mit Griff
++ ES7 ist in der Mache - soll 2016 kommen
++ Aufnahmeprozess neuer Features ist durch Entwicklergemeinde mitgesteuert, mit Babel kann man früh Feedback zu vorgeschlagenen Syntaxerweiterungen bekommen
+
+## Trends:
++ JS sicherer machen mit zu-JS-kompilierenden Sprachen (Clojurescript, Typescript, Purescript, Elm etc.)
+
+
+class: s s-center
+
+## ES6 Gotchas
+
++ keine Kommata zwischen Methoden in Klassen (aber in Objekten)
+
+.row.row_padding-none-horizontal[
+
+.col.col-50[
+.text-code_small[
+```javascript
+class User {
+  methodA() {
+    // ,,,
+  }
+
+  methodB() {
+    // ,,, ;
+  }
+}
+```
+]
+]
+
+.col.col-50[
+.text-code_small[
+```javascript
+let user = {
+  methodA() {
+    // ,,,
+  },
+
+  methodB() {
+    // ,,, ;
+  }
+}
+```
+]
+]
+]
+
+---
+
+## ES6 Gotchas
+
+.c-list.u-width-70[
++ andere Pfeilsyntax für Methoden
++ implizite `returns`
+]
+
+---
+
+
