@@ -681,7 +681,7 @@ Math.max()
 + .text-background-translucent-yellow[**B**: `-Infinity`]
 + **C**: `9007199254740992`
 
-<!-- FOLIE übersprungen, soll aber am Ende in der Präsentation sein
+---
 
 class: s s-top s_padding-small s_background-bottom s_background-40 s_padding-small
 background-image: url(images/office-space-lumbergh-hmmm.jpg)
@@ -695,7 +695,6 @@ Math.max();
 Math.min();
 // Infinity
 ```
--->
 
 ---
 
@@ -874,9 +873,7 @@ Der Zeilenumbruch **setzt implizit ein Semikolon**, wodurch<br> `b = ...` keine 
 + Variableninitialisierungen im globalen Kontext setzen einfach Attribute auf `window`
 ]
 
-
-
-<!-- ÜBERSPRUNGEN, SOLL IN FINALE PRÄSENTATION
+---
 
 class: s s-top
 
@@ -916,7 +913,7 @@ class: s s-top
 + Letztes generelles Problem
 + .text-red[direkt zur Lösung 3 Folien weiter springen?]
 
-\---
+---
 
 class: s s-top
 
@@ -952,7 +949,7 @@ class: s s-top
 + **C**: `false, false, false`
 ]
 
-\---
+---
 
 class: s s-top
 
@@ -1022,8 +1019,6 @@ rechte Spalte:
 
 Spec: [http://www.ecma-international.org/ecma-262/5.1/#sec-11.9.3](http://www.ecma-international.org/ecma-262/5.1/#sec-11.9.3)
 ]
-
--->
 
 ---
 
