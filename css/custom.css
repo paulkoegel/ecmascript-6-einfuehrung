@@ -41,8 +41,25 @@
   margin-bottom: 0;
 }
 
-.c-title--note {
+.remark-presenter-mode .c-presentation-mode-note {
   display: none;
+}
+.c-presentation-mode-note {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #8B0000;
+  color: white;
+  text-align: center;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+.c-presentation-mode-note--close {
+  color: grey;
+}
+.c-presentation-mode-note--close:hover {
+  color: #fafafa;
 }
 
 .c-title--meta {

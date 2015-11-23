@@ -27,6 +27,23 @@
         ratio: '16:9'//,
         //slideNumberFormat: ''
         });
+      var presentationNoteClass = 'c-presentation-mode-note';
+      var makePresentationNote = function() {
+        var presentationNote = document.createElement('div');
+        presentationNote.innerHTML = "'p' drücken, um Präsentationsnotizen ein-/auszublenden <span class='c-presentation-mode-note--close'>&#10006;</span>";
+        presentationNote.className = 'c-presentation-mode-note';
+        presentationNote.onclick = function() {
+          var notes = document.getElementsByClassName(presentationNoteClass);
+          for(var j = 0; j < notes.length; j++) {
+            notes[j].style.display = 'none';
+          }
+        }
+        return presentationNote;
+      };
+      var slides = document.getElementsByClassName('remark-slide');
+      for(var i = 0; i < slides.length; i++) {
+        slides[i].appendChild(makePresentationNote());
+      }
     </script>
   </body>
 
